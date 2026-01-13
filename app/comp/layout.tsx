@@ -32,5 +32,5 @@ export default async function ({children}: Readonly<Props>) {
 }
 
 function Footer({}: Readonly<{children?: ReactNode}>) {
-	return <div className="h-30"></div>;
+	return <div className="h-80 bg-(--warning)"></div>;
 }

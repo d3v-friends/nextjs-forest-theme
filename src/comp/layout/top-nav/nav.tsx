@@ -10,7 +10,7 @@ interface Props {
 
 const Styles: Record<IsActive, string> = {
 	active: "bg-white",
-	inactive: "bg-[#dbdbdd] shadow-2xl shadow-[rgba(0,0,0,0.1)]",
+	inactive: "bg-(--panel) shadow-xl shadow-[rgba(0,0,0,0.08)]",
 };
 
 export default function ({children, className = ""}: Readonly<Props>) {
@@ -22,8 +22,4 @@ export default function ({children, className = ""}: Readonly<Props>) {
 			)}
 		</ScrollTop>
 	);
-}
-
-function Container({children}: Readonly<{children?: ReactNode}>) {
-	return <div className={concat("w-full h-full", cls.transition.default)}>{children}</div>;
 }
