@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+    body {
+        font-family: "astasans", sans, serif;
+        font-size: 18px;
+    }
+
+    .astasans {
+        font-family: "astasans", sans, serif;
+    }
+
+    .raleway {
+        font-family: "raleway", "astasans", sans, serif;
+    }
+
+    .no-drag {
+        user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    img {
+        user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    body {
+        --primary: #6fe463;
+        --primary-alt: #272525;
+        --primary-filter: brightness(0) saturate(100%) invert(78%) sepia(56%) saturate(468%) hue-rotate(58deg) brightness(91%) contrast(97%);
+        --primary-hover: rgb(34, 128, 0);
+
+        --warning: #DAD887;
+        --warning-alt: #272525;
+
+        --danger: #FA5C5C;
+        --danger-alt: #272525;
+        --danger-filter: brightness(0) saturate(100%) invert(41%) sepia(73%) saturate(566%) hue-rotate(314deg) brightness(111%) contrast(96%);
+
+        --info: #57595B;
+        --info-alt: #fff;
+        --info-filter: brightness(0) saturate(100%) invert(33%) sepia(3%) saturate(416%) hue-rotate(169deg) brightness(99%) contrast(89%);
+
+        --success: #696FC7;
+        --success-alt: #272525;
+
+        --border: #afafaf;
+        --border-active: #494951;
+        --border-hover: #fefefe;
+
+        --panel: #eeeeee;
+    }
+
+}
