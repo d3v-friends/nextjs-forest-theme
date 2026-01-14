@@ -1,6 +1,7 @@
 "use server";
 import {ReactNode} from "react";
-import {AsideNav, TopNav} from "@src";
+import {AsideNav, NavElems, TopNav} from "@src";
+import {AsideSector} from "@src/comp/layout/aside-nav";
 
 interface Props {
 	children?: ReactNode;
@@ -8,25 +9,10 @@ interface Props {
 
 export default async function ({children}: Readonly<Props>) {
 	return (
-		<TopNav footer={<Footer />}>
-			<AsideNav
-				aside={[
-					{
-						title: "Component",
-						links: [
-							{
-								href: "/comp/button",
-								label: "버튼",
-							},
-							{
-								href: "/comp/modal",
-								label: "모달",
-							},
-						],
-					},
-				]}>
-				{children}
-			</AsideNav>
+		<TopNav
+			nav={<Nav />}
+			footer={<Footer />}>
+			<AsideNav aside={asideItems}>{children}</AsideNav>
 		</TopNav>
 	);
 }
@@ -34,3 +20,41 @@ export default async function ({children}: Readonly<Props>) {
 function Footer({}: Readonly<{children?: ReactNode}>) {
 	return <div className="h-80 bg-(--warning)"></div>;
 }
+
+function Nav({}: Readonly<{children?: ReactNode}>) {
+	const {Container, Logo, Left, Right, LinkButton} = NavElems;
+	return (
+		<Container>
+			<Left>
+				<LinkButton
+					href="/comp/button"
+					className="mr-10">
+					Component
+				</LinkButton>
+				<LinkButton href="/comp/button">Component</LinkButton>
+			</Left>
+			<Logo>Forest Theme</Logo>
+			<Right></Right>
+		</Container>
+	);
+}
+
+const asideItems: AsideSector[] = [
+	{
+		title: "Component",
+		links: [
+			{
+				href: "/comp/button",
+				label: "button",
+			},
+			{
+				href: "/comp/modal",
+				label: "modal",
+			},
+			{
+				href: "/comp/table",
+				label: "table",
+			},
+		],
+	},
+];

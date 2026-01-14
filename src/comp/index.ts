@@ -6,9 +6,10 @@ export {default as ButtonOutline} from "./button/outline";
 
 // layout
 export {default as AsideNav} from "./layout/aside-nav";
-export {default as TopNav} from "./layout/top-nav";
+export {default as NavElems} from "./layout/nav-elems";
 export {default as Panel} from "./layout/panel";
 export {default as PanelTitle} from "./layout/panel-title";
+export {default as TopNav} from "./layout/top-nav";
 
 // page
 export {default as NotFoundPage} from "./page/not-found";

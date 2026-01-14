@@ -34,10 +34,10 @@
         --primary: #6fe463;
         --primary-alt: #272525;
         --primary-filter: brightness(0) saturate(100%) invert(78%) sepia(56%) saturate(468%) hue-rotate(58deg) brightness(91%) contrast(97%);
-        --primary-hover: rgb(34, 128, 0);
 
         --warning: #DAD887;
         --warning-alt: #272525;
+        --warning-filter: brightness(0) saturate(100%) invert(88%) sepia(63%) saturate(285%) hue-rotate(356deg) brightness(90%) contrast(89%);
 
         --danger: #FA5C5C;
         --danger-alt: #272525;
@@ -49,12 +49,11 @@
 
         --success: #696FC7;
         --success-alt: #272525;
+        --success-filter: brightness(0) saturate(100%) invert(45%) sepia(12%) saturate(2281%) hue-rotate(199deg) brightness(97%) contrast(91%);
 
         --border: #afafaf;
-        --border-active: #494951;
-        --border-hover: #fefefe;
-
-        --panel: #eeeeee;
+        --panel: #f4f8f2;
+        --nav: #EBF4DD;
     }
 
 }

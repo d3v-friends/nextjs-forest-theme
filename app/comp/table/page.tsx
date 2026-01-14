@@ -1,0 +1,19 @@
+"use server";
+import {getSearchParams, NextPageProps, searchParamsParser} from "nextjs-tools";
+import React from "react";
+import {Panel, PanelTitle} from "@src";
+
+export default async function ({searchParams}: NextPageProps) {
+	const {page, size} = await getSearchParams(searchParams, {
+		page: searchParamsParser.number(0),
+		size: searchParamsParser.number(20),
+	});
+
+	return (
+		<div className="grid grid-cols-1 gap-2 lg:gap-4">
+			<Panel>
+				<PanelTitle>Table</PanelTitle>
+			</Panel>
+		</div>
+	);
+}
