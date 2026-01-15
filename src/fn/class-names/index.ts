@@ -15,10 +15,18 @@ export default {
 		warning: "bg-(--warning)",
 		info: "bg-(--info)",
 	},
+	hover: {
+		background: {
+			primary: "hover:bg-(--primary)",
+		},
+	},
 	transition: {
 		default: "transition-all duration-600",
 		short: "transition-all duration-300",
 		instant: "transition-all duration-150",
+	},
+	border: {
+		bottom: "border-b border-(--border)",
 	},
 	font: {
 		raleway: "raleway",

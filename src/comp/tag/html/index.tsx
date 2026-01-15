@@ -11,7 +11,7 @@ interface Props {
 export default async function ({children, lang = "ko"}: Readonly<Props>) {
 	return (
 		<html lang={lang}>
-			<body>{children}</body>
+			<body className="font-[14px] lg:font-[16px] ">{children}</body>
 		</html>
 	);
 }

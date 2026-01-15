@@ -33,7 +33,7 @@ export default function ({
 	// attribute
 	type = "button",
 }: Readonly<Props>) {
-	const onMouseDown: MouseEventHandler<HTMLButtonElement> = (e) => {
+	const onMouseUp: MouseEventHandler<HTMLButtonElement> = (e) => {
 		switch (e.button) {
 			case 0:
 				// left click
@@ -59,7 +59,7 @@ export default function ({
 					"active:duration-0"
 				)}
 				{...{type}}
-				onMouseDown={onMouseDown}>
+				onMouseUp={onMouseUp}>
 				<span className={style.children}>{children}</span>
 			</button>
 		</div>

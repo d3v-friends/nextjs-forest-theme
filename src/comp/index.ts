@@ -14,6 +14,11 @@ export {default as TopNav} from "./layout/top-nav";
 // page
 export {default as NotFoundPage} from "./page/not-found";
 
+// table
+export * from "./table/types";
+export {default as Table} from "./table/base";
+export {default as Pagination} from "./table/pagination";
+
 // tag
 export {default as HTML} from "./tag/html";
 
