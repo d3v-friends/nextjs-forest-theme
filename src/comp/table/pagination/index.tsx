@@ -27,8 +27,8 @@ export default function ({
 	className = "",
 	buttons = 2,
 }: Readonly<Props>) {
-	if (total === 0) return <>NULL_TOTAL</>;
-	if (size === 0) return <>NULL_SIZE</>;
+	if (total === 0) return null;
+	if (size === 0) return null;
 
 	const params = useSearchParams();
 	const router = useRouterTools();
@@ -52,20 +52,22 @@ export default function ({
 	const hasNext = items.findIndex((v) => v === last) === -1;
 
 	return (
-		<div className={concat("flex items-center", className)}>
-			<Dropdown
-				items={[
-					{label: "10 개", value: "10"},
-					{label: "30 개", value: "30"},
-					{label: "50 개", value: "50"},
-				]}
-				onChange={(value) => {
-					router.pushBySearchParams({[sizeKey]: value});
-				}}
-				value={params.get(sizeKey) || "10"}
-			/>
-			<div className="text-(--info) pl-2">전체 {strconv.toSplitNumber(total)}</div>
-			<div className="grow" />
+		<div className={concat("flex items-center justify-center", className)}>
+			{/* TODO 나중에 이곳 동적으로 바꿀수 있도록 기능 추가하기 */}
+			<div className="hidden grow md:flex md:items-center">
+				<Dropdown
+					items={[
+						{label: "10 개", value: "10"},
+						{label: "30 개", value: "30"},
+						{label: "50 개", value: "50"},
+					]}
+					onChange={(value) => {
+						router.pushBySearchParams({[sizeKey]: value});
+					}}
+					value={params.get(sizeKey) || "10"}
+				/>
+				<div className="text-(--info) pl-2">전체 {strconv.toSplitNumber(total)} 개</div>
+			</div>
 
 			<Prev
 				href={getHref(params.toString(), pageKey, page - buttons - 1)}
