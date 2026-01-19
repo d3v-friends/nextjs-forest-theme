@@ -6,6 +6,9 @@
 .fleet
 .vscode
 
+# private
+private*
+
 # mac
 .DS_Store
 
@@ -30,7 +33,7 @@
 /build
 
 # misc
-.DS_Store
+DS_Store
 *.pem
 
 # debug

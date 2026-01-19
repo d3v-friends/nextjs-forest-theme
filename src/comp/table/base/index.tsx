@@ -22,7 +22,7 @@ interface Props<T> {
 export default function <T>({
 	columns = [],
 	list = [],
-	className = "w-full",
+	className = "w-full mb-8",
 	onClick = fnVoid,
 	onMiddleClick = fnVoid,
 }: Readonly<Partial<Props<T>>>) {

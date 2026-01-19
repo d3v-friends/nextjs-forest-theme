@@ -52,7 +52,9 @@
 
         --border: #afafaf;
         --panel: #f4f8f2;
-        --nav: #EBF4DD;
+        --input: rgba(235, 244, 211, 0.8);
+        --nav: rgba(255, 255, 255, 0.8);
+        --select: rgba(235, 244, 211, 0.8);
     }
 
 }

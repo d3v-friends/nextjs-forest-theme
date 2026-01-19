@@ -7,6 +7,9 @@ export default {
 	width: {
 		max: "max-w-[1440px]",
 	},
+	height: {
+		input: "h-8",
+	},
 	background: {
 		panel: "bg-(--panel)",
 		primary: "bg-(--primary)",
@@ -14,6 +17,7 @@ export default {
 		success: "bg-(--success)",
 		warning: "bg-(--warning)",
 		info: "bg-(--info)",
+		input: "bg-(--input)",
 	},
 	hover: {
 		background: {
@@ -23,6 +27,7 @@ export default {
 	transition: {
 		default: "transition-all duration-600",
 		short: "transition-all duration-300",
+		shortAll: "[&>*]:transition-all duration-300",
 		instant: "transition-all duration-150",
 	},
 	border: {

@@ -4,6 +4,9 @@ export {default as Button} from "./button/fill";
 export {default as ButtonLine} from "./button/line";
 export {default as ButtonOutline} from "./button/outline";
 
+// input
+export {default as InputDropdown} from "./input/dropdown";
+
 // layout
 export {default as AsideNav} from "./layout/aside-nav";
 export {default as NavElems} from "./layout/nav-elems";
