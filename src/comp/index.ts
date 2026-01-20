@@ -6,6 +6,8 @@ export {default as ButtonOutline} from "./button/outline";
 
 // input
 export {default as InputDropdown} from "./input/dropdown";
+export {default as InputString} from "./input/string";
+export {default as InputNumber} from "./input/number";
 
 // layout
 export {default as AsideNav} from "./layout/aside-nav";

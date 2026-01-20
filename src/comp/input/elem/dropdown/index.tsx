@@ -21,15 +21,20 @@ export interface DropdownItem {
 
 export default function ({items = [], value = "", onChange = fnVoid, className}: Readonly<Partial<Props>>) {
 	const [idx, setIdx] = useState(getIndex(items, value));
-	const [dropdown] = useDropdown(({width, onClose}) => (
-		<Dropdown
-			width={width}
-			items={items}
-			idx={idx}
-			onChangeIdx={setIdx}
-			onClose={onClose}
-		/>
-	));
+	const [dropdown] = useDropdown(
+		({width, onClose}) => (
+			<Dropdown
+				width={width}
+				items={items}
+				idx={idx}
+				onChangeIdx={setIdx}
+				onClose={onClose}
+			/>
+		),
+		{
+			className,
+		}
+	);
 
 	useEffect(() => {
 		setIdx(getIndex(items, value));
@@ -42,8 +47,8 @@ export default function ({items = [], value = "", onChange = fnVoid, className}:
 	if (items.length === 0) return null;
 
 	const item = items[idx];
-	return dropdown((isOpen) => (
-		<div className={className}>
+	return dropdown(
+		(isOpen) => (
 			<div
 				className={concat(
 					cls.height.input,
@@ -62,8 +67,11 @@ export default function ({items = [], value = "", onChange = fnVoid, className}:
 					height={20}
 				/>
 			</div>
-		</div>
-	));
+		),
+		{
+			className,
+		}
+	);
 }
 
 function getIndex(items: DropdownItem[], value: string): number {

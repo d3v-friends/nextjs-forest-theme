@@ -1,14 +1,19 @@
 "use client";
 import {MouseEventHandler, ReactNode, useEffect, useRef, useState} from "react";
 import {createPortal} from "react-dom";
-import {concat, FnVoid, initPosition, Position} from "nextjs-tools";
+import {concat, FnVoid, initPosition, Position, Undefined} from "nextjs-tools";
 
 type Wrapper = (children: (isOpen: boolean) => ReactNode) => ReactNode;
 
 export type DropdownChildren = (props: Position & {onClose: FnVoid}) => ReactNode;
 
+export interface Options {
+	align: "left" | "right";
+	className: string;
+}
+
 // todo 드롭다운 좌우 정렬 축 기준 추가하기
-export default function (dropdown: DropdownChildren = () => "", align: "left" | "right" = "left"): [Wrapper] {
+export default function (dropdown: DropdownChildren = () => "", opts: Undefined<Partial<Options>> = {}): [Wrapper] {
 	const [open, setOpen] = useState(false);
 	const [pos, setPos] = useState<Position>(initPosition);
 	const setPosRef = useRef(setPos);
@@ -34,10 +39,13 @@ export default function (dropdown: DropdownChildren = () => "", align: "left" | 
 		};
 	}, []);
 
+	const {className} = opts;
+
 	return [
 		(children) => (
 			<>
 				<button
+					className={concat(className || "", "no-drag")}
 					type="button"
 					ref={buttonRef}
 					onClick={onClick}>
