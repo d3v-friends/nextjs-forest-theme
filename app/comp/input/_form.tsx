@@ -1,5 +1,5 @@
 "use client";
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {
 	Button,
 	InputCheckbox,
@@ -36,10 +36,10 @@ export default function ({}: Readonly<Props>) {
 
 	const formRef = useRef<HTMLFormElement>(null);
 
-	const onClickGetFormStr = () => {
+	useEffect(() => {
 		if (!formRef.current) return;
 		setFormStr(toStringFormData(new FormData(formRef.current)));
-	};
+	}, [state]);
 
 	return (
 		<>
@@ -119,10 +119,11 @@ export default function ({}: Readonly<Props>) {
 			<hr />
 
 			<div className="h-20" />
-			<PanelTitle>Debug</PanelTitle>
+			<PanelTitle>State</PanelTitle>
 			<Panel className="mb-4">{JSON.stringify(state)}</Panel>
+
+			<PanelTitle>FormData</PanelTitle>
 			<Panel className="mb-4">{formStr}</Panel>
-			<Button onClick={onClickGetFormStr}>FormData 가저오기</Button>
 		</>
 	);
 }
