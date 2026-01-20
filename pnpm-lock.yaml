@@ -8,12 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@types/luxon':
+        specifier: ^3.7.1
+        version: 3.7.1
+      luxon:
+        specifier: ^3.7.2
+        version: 3.7.2
       next:
         specifier: 16.1.1
         version: 16.1.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       nextjs-tools:
-        specifier: github:d3v-friends/nextjs-tools#3.0.0
-        version: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/a7c339673417584ecc535592a1662fbb30fa75fa
+        specifier: github:d3v-friends/nextjs-tools#3.0.1
+        version: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/fc9eaa71bf1232f0a08a6573109c77e261670270
       react:
         specifier: 19.2.3
         version: 19.2.3
@@ -350,6 +356,9 @@ packages:
   '@tailwindcss/postcss@4.1.18':
     resolution: {integrity: sha512-Ce0GFnzAOuPyfV5SxjXGn0CubwGcuDB0zcdaPuCSzAa/2vII24JTkH+I6jcbXLb1ctjZMZZI6OjDaLPJQL1S0g==}
 
+  '@types/luxon@3.7.1':
+    resolution: {integrity: sha512-H3iskjFIAn5SlJU7OuxUmTEpebK6TKB8rxZShDslBMZJ5u9S//KM1sbdAisiSrqwLQncVjnpi2OK2J51h+4lsg==}
+
   '@types/node@25.0.7':
     resolution: {integrity: sha512-C/er7DlIZgRJO7WtTdYovjIFzGsz0I95UlMyR9anTb4aCpBSRWe5Jc1/RvLKUfzmOxHPGjSE5+63HgLtndxU4w==}
 
@@ -566,6 +575,10 @@ packages:
     resolution: {integrity: sha512-utfs7Pr5uJyyvDETitgsaqSyjCb2qNRAtuqUeWIAKztsOYdcACf2KtARYXg2pSvhkt+9NfoaNY7fxjl6nuMjIQ==}
     engines: {node: '>= 12.0.0'}
 
+  luxon@3.7.2:
+    resolution: {integrity: sha512-vtEhXh/gNjI9Yg1u4jX/0YVPMvxzHuGgCm6tC5kZyb08yjGWGnqAjGJvcXbqQR2P3MyMEFnRbpcdFS6PBcLqew==}
+    engines: {node: '>=12'}
+
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
@@ -602,8 +615,8 @@ packages:
       sass:
         optional: true
 
-  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/a7c339673417584ecc535592a1662fbb30fa75fa:
-    resolution: {tarball: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/a7c339673417584ecc535592a1662fbb30fa75fa}
+  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/fc9eaa71bf1232f0a08a6573109c77e261670270:
+    resolution: {tarball: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/fc9eaa71bf1232f0a08a6573109c77e261670270}
     version: 0.0.0
 
   pbkdf2@3.1.5:
@@ -957,6 +970,8 @@ snapshots:
       postcss: 8.5.6
       tailwindcss: 4.1.18
 
+  '@types/luxon@3.7.1': {}
+
   '@types/node@25.0.7':
     dependencies:
       undici-types: 7.16.0
@@ -1164,6 +1179,8 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.30.2
       lightningcss-win32-x64-msvc: 1.30.2
 
+  luxon@3.7.2: {}
+
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -1202,7 +1219,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/a7c339673417584ecc535592a1662fbb30fa75fa:
+  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/fc9eaa71bf1232f0a08a6573109c77e261670270:
     dependencies:
       decimal.js: 10.6.0
       pbkdf2: 3.1.5

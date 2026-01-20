@@ -9,7 +9,8 @@ interface Props {
 
 export default function ({children, className = ""}: Readonly<Props>) {
 	return (
-		<section className={concat(cls.shadow.normal, "w-full border border-(--border) p-5", className)}>
+		<section
+			className={concat(cls.shadow.normal, "w-full border border-(--border) p-5 overflow-hidden", className)}>
 			{children}
 		</section>
 	);
