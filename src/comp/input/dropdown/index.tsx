@@ -1,8 +1,8 @@
 "use client";
 import React, {ReactNode, useEffect, useState} from "react";
-import Elems from "../elems";
+import Elems from "../base";
 import Dropdown, {DropdownItem} from "../elem/dropdown";
-import {FnBase, fnVoid} from "nextjs-tools";
+import {FnBase} from "nextjs-tools";
 
 type InputProps = Props & Partial<InputAttribute> & Partial<InputConvenience>;
 
@@ -17,6 +17,7 @@ interface InputAttribute {
 
 interface InputConvenience {
 	label: ReactNode;
+	className: string;
 }
 
 export default function ({
@@ -25,19 +26,20 @@ export default function ({
 
 	// convenience
 	label,
+	className = "mb-4",
 
 	// input attribute
 	name,
 }: Readonly<InputProps>) {
 	const [value, setValue] = useState("");
-	const {Label} = Elems;
+	const {Label, InputHidden} = Elems;
 
 	useEffect(() => {
 		onChange(value);
 	}, [value]);
 
 	return (
-		<>
+		<div className={className}>
 			<Label className="mb-1">{label}</Label>
 
 			<Dropdown
@@ -46,14 +48,10 @@ export default function ({
 				onChange={setValue}
 			/>
 
-			{name && (
-				<input
-					name={name}
-					value={value}
-					onChange={fnVoid}
-					hidden
-				/>
-			)}
-		</>
+			<InputHidden
+				value={value}
+				name={name}
+			/>
+		</div>
 	);
 }

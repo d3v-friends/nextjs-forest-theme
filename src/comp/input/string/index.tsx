@@ -1,6 +1,6 @@
 "use client";
 import React, {HTMLInputTypeAttribute, ReactNode, useEffect, useState} from "react";
-import Elems from "../elems";
+import Elems from "../base";
 import {DefaultInputInterceptor, HTMLInputModeAttribute, InputInterceptor} from "../types";
 import {concat, FnBase} from "nextjs-tools";
 

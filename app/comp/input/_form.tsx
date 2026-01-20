@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode, useEffect, useState} from "react";
-import {Button, InputDropdown, InputNumber, InputString} from "@src";
+import {Button, InputDropdown, InputNumber, InputSelectCheckbox, InputString} from "@src";
 
 interface Props {
 	children?: ReactNode;
@@ -11,6 +11,7 @@ interface Args {
 	age: number;
 	decimal: number;
 	unit: string;
+	select: string[];
 }
 
 export default function ({children}: Readonly<Props>) {
@@ -19,6 +20,7 @@ export default function ({children}: Readonly<Props>) {
 		age: 0,
 		decimal: 0.0,
 		unit: "",
+		select: [],
 	});
 
 	useEffect(() => {
@@ -70,6 +72,19 @@ export default function ({children}: Readonly<Props>) {
 					{label: "50 개", value: "50"},
 				]}
 				onChange={(unit) => setState({...state, unit})}
+			/>
+
+			<InputSelectCheckbox
+				label="select checkbox"
+				value={state.select}
+				onChange={(select) => setState({...state, select})}
+				items={[
+					{label: "10 개", value: "10"},
+					{label: "20 개", value: "20"},
+					{label: "30 개", value: "30"},
+					{label: "40 개", value: "40"},
+					{label: "50 개", value: "50"},
+				]}
 			/>
 		</>
 	);

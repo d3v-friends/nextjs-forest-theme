@@ -8,6 +8,7 @@ export {default as ButtonOutline} from "./button/outline";
 export {default as InputDropdown} from "./input/dropdown";
 export {default as InputString} from "./input/string";
 export {default as InputNumber} from "./input/number";
+export {default as InputSelectCheckbox} from "./input/select-checkbox";
 
 // layout
 export {default as AsideNav} from "./layout/aside-nav";

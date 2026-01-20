@@ -3,7 +3,7 @@ import ImgWarn from "web-asset/svg/regular/fi-rr-triangle-warning.svg";
 import Image from "next/image";
 import ImgCheck from "web-asset/svg/regular/fi-rr-check.svg";
 import {DefaultOnClickCheckboxInterceptor, OnClickCheckboxInterceptor} from "./types";
-import {concat} from "nextjs-tools";
+import {concat, fnVoid} from "nextjs-tools";
 import cls from "../../fn/class-names";
 
 const CSS = {
@@ -86,7 +86,7 @@ function Checkbox({
 	return (
 		<button
 			type="button"
-			className="inline-flex items-center h-8"
+			className={concat(cls.height.input, "flex items-center")}
 			onClick={(e) => onChange(onClickInterceptor(e, !value))}>
 			<div
 				className={concat(
@@ -106,4 +106,21 @@ function Checkbox({
 	);
 }
 
-export default {Label, InvalidMessage, Container, InputRight, Checkbox};
+interface InputHiddenProps {
+	name?: string;
+	value: string;
+}
+
+function InputHidden({value, name}: Readonly<InputHiddenProps>) {
+	if (!name) return null;
+	return (
+		<input
+			name={name}
+			hidden
+			value={value}
+			onChange={fnVoid}
+		/>
+	);
+}
+
+export default {Label, InvalidMessage, Container, InputRight, InputHidden, Checkbox};
