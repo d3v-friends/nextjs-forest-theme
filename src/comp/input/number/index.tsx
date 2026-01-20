@@ -52,13 +52,11 @@ export default function (props: Readonly<Props>) {
 	} = props;
 
 	useEffect(() => {
-		if (!Number.isNaN(strValue)) return;
 		onChange(Number(strValue));
 	}, [strValue]);
 
 	const onKeyEnter = (str: string) => {
 		if (!props.onKeyEnter) return;
-		if (!Number.isNaN(strValue)) return;
 		props.onKeyEnter(Number(str));
 	};
 
