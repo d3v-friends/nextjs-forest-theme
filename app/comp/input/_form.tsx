@@ -1,6 +1,6 @@
 "use client";
-import React, {ReactNode, useEffect, useState} from "react";
-import {Button, InputDropdown, InputNumber, InputSelectCheckbox, InputString} from "@src";
+import React, {ReactNode, useState} from "react";
+import {Button, InputCheckbox, InputDropdown, InputNumber, InputSelectCheckbox, InputString, Panel} from "@src";
 
 interface Props {
 	children?: ReactNode;
@@ -12,6 +12,7 @@ interface Args {
 	decimal: number;
 	unit: string;
 	select: string[];
+	checkbox: boolean;
 }
 
 export default function ({children}: Readonly<Props>) {
@@ -21,14 +22,13 @@ export default function ({children}: Readonly<Props>) {
 		decimal: 0.0,
 		unit: "",
 		select: [],
+		checkbox: false,
 	});
-
-	useEffect(() => {
-		console.log(state);
-	}, [state]);
 
 	return (
 		<>
+			<Panel className="mb-4">{JSON.stringify(state)}</Panel>
+
 			<InputString
 				label="name"
 				value={state.name}
@@ -86,6 +86,13 @@ export default function ({children}: Readonly<Props>) {
 					{label: "50 개", value: "50"},
 				]}
 			/>
+
+			<InputCheckbox
+				label="checkbox"
+				value={state.checkbox}
+				onChange={(checkbox) => setState({...state, checkbox})}>
+				apply
+			</InputCheckbox>
 		</>
 	);
 }

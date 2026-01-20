@@ -10,6 +10,7 @@ interface InputProps {
 	value: string[];
 	onChange: FnBase<string[]>;
 	containerClassName?: string;
+	className?: string;
 }
 
 interface InputAttribute {
@@ -30,6 +31,7 @@ export default function ({
 	value,
 	onChange,
 	containerClassName = "",
+	className = "mb-4",
 
 	// convenience
 	label,
@@ -55,7 +57,7 @@ export default function ({
 	};
 
 	return (
-		<>
+		<div className={className}>
 			<Label>{label}</Label>
 
 			<div className={concat(containerClassName)}>
@@ -73,7 +75,7 @@ export default function ({
 				name={name}
 				value={strValue}
 			/>
-		</>
+		</div>
 	);
 }
 
