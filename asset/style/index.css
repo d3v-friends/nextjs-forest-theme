@@ -29,6 +29,7 @@
         -ms-user-select: none;
     }
 
+
     body {
         --primary: #6fe463;
         --primary-alt: #272525;
@@ -57,4 +58,7 @@
         --select: rgba(235, 244, 211, 0.8);
     }
 
+    hr {
+        border-top: 1px solid var(--border);
+    }
 }

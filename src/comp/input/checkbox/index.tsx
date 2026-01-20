@@ -45,7 +45,6 @@ export default function ({
 			{name && (
 				<input
 					hidden
-					type="checkbox"
 					value={value ? "true" : "false"}
 					name={name}
 					onChange={fnVoid}
