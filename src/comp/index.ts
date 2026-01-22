@@ -17,6 +17,7 @@ export {default as NavElems} from "./layout/nav-elems";
 export {default as Panel} from "./layout/panel";
 export {default as PanelTitle} from "./layout/panel-title";
 export {default as TopNav} from "./layout/top-nav";
+export {default as Suspend} from "./layout/suspend";
 
 // page
 export {default as NotFoundPage} from "./page/not-found";

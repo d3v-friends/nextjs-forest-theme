@@ -4,9 +4,9 @@ import {Nullable} from "nextjs-tools";
 
 type ResultType = "string" | "integer" | "decimal" | "strings" | "integers" | "decimals";
 
-type InputProperty = Partial<InputParser> & Partial<InputAttribute>;
+export type InputProperty = Partial<InputConvenience> & Partial<InputAttribute>;
 
-type InputParser = {
+type InputConvenience = {
 	regexp: RegExp | string;
 	resultType: ResultType;
 	invalidMessage: string;
@@ -22,10 +22,11 @@ type InputAttribute = {
 	autoComplete: HTMLInputAutoCompleteAttribute;
 };
 
-export type Input<T> = Partial<InputParser> &
-	Partial<InputAttribute> & {
-		parser: (str: Nullable<string>) => T;
-	};
+export type InputParser<T> = (str: Nullable<string>) => T;
+
+export type Input<T> = InputProperty & {
+	parser: InputParser<T>;
+};
 
 export type FormType<T extends object> = {
 	[KEY in keyof T]: Input<T[KEY]>;
@@ -49,6 +50,4 @@ export interface ServerActionState<I, R> {
 // R = response
 export type ServerActionHandler<I, R> = (parameter: I) => Promise<R>;
 
-function newForm<T extends object>(form: FormType<T>): FormType<T> {
-	return form;
-}
+export type ServerAction<I, R> = (_: any, form: FormData) => Promise<ServerActionState<I, R>>;

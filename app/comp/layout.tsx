@@ -59,6 +59,10 @@ const asideItems: AsideSector[] = [
 				href: "/comp/input",
 				label: "input",
 			},
+			{
+				href: "/comp/server-action",
+				label: "server action",
+			},
 		],
 	},
 ];

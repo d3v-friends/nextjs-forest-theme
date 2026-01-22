@@ -56,9 +56,32 @@
         --input: rgba(235, 244, 211, 0.8);
         --nav: rgba(255, 255, 255, 0.8);
         --select: rgba(235, 244, 211, 0.8);
+        --suspend: rgba(0, 0, 0, 0.4);
     }
 
     hr {
         border-top: 1px solid var(--border);
+    }
+
+    /* input 배경 삭제 */
+    input:-webkit-autofill {
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* 간단한 에니메이션     */
+    @keyframes breath {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        /* 1.1로 키우면 더 확실히 보여 */
+    }
+
+    .breathing-effect {
+        /* transform이 작동하려면 block이나 inline-block이 필수야 */
+        display: inline-block;
+        animation: breath 2s ease-in-out infinite;
     }
 }

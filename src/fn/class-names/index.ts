@@ -18,6 +18,7 @@ export default {
 		warning: "bg-(--warning)",
 		info: "bg-(--info)",
 		input: "bg-(--input)",
+		suspend: "bg-(--suspend)",
 	},
 	hover: {
 		background: {

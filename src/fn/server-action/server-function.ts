@@ -9,11 +9,11 @@ export default async function <I extends object, R>(
 	handler: ServerActionHandler<I, R>
 ): Promise<ServerActionState<I, R>> {
 	const logger = await getLogger();
-	const i = getValue(form, desc);
 
 	try {
+		const i = getValue(form, desc);
 		const res = await handler(i);
-		logger.trace("SERVER_ACTION", "input", i, "response", res);
+		logger.info("SERVER_ACTION", "input", i, "response", res);
 
 		return {
 			time: new Date().getTime(),
@@ -23,12 +23,12 @@ export default async function <I extends object, R>(
 	} catch (e) {
 		let message = e instanceof Error ? e.message : JSON.stringify(e);
 
-		logger.error("SERVER_ACTION", "input", i, "error", message);
+		logger.error("SERVER_ACTION", "ERROR", message);
 
 		return {
 			time: new Date().getTime(),
 			response: null as R,
-			input: i,
+			input: null as unknown as I,
 			error: message,
 		};
 	}

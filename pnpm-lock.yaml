@@ -18,8 +18,8 @@ importers:
         specifier: 16.1.1
         version: 16.1.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       nextjs-tools:
-        specifier: github:d3v-friends/nextjs-tools#3.0.1
-        version: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/fc9eaa71bf1232f0a08a6573109c77e261670270
+        specifier: github:d3v-friends/nextjs-tools#3.0.5
+        version: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/833330634ee54f055031d11e0b91b98927bf550a
       react:
         specifier: 19.2.3
         version: 19.2.3
@@ -615,8 +615,8 @@ packages:
       sass:
         optional: true
 
-  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/fc9eaa71bf1232f0a08a6573109c77e261670270:
-    resolution: {tarball: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/fc9eaa71bf1232f0a08a6573109c77e261670270}
+  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/833330634ee54f055031d11e0b91b98927bf550a:
+    resolution: {tarball: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/833330634ee54f055031d11e0b91b98927bf550a}
     version: 0.0.0
 
   pbkdf2@3.1.5:
@@ -1219,9 +1219,11 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/fc9eaa71bf1232f0a08a6573109c77e261670270:
+  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/833330634ee54f055031d11e0b91b98927bf550a:
     dependencies:
+      '@types/luxon': 3.7.1
       decimal.js: 10.6.0
+      luxon: 3.7.2
       pbkdf2: 3.1.5
 
   pbkdf2@3.1.5:
