@@ -1,0 +1,95 @@
+@use "tailwindcss";
+@use "semantic/button";
+@use "semantic/section";
+@use "semantic/h";
+
+@layer forest;
+
+@layer forest {
+  body {
+    font-family: "astasans", sans, serif;
+  }
+
+  .astasans {
+    font-family: "astasans", sans, serif;
+  }
+
+  .raleway {
+    font-family: "raleway", "astasans", sans, serif;
+  }
+
+  .no-drag {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+
+  body {
+    --elem-height: 2.5rem;
+
+    --primary: #6fe463;
+    --primary-alt: #272525;
+    --primary-filter: brightness(0) saturate(100%) invert(78%) sepia(56%) saturate(468%) hue-rotate(58deg) brightness(91%) contrast(97%);
+
+    --warning: #DAD887;
+    --warning-alt: #272525;
+    --warning-filter: brightness(0) saturate(100%) invert(88%) sepia(63%) saturate(285%) hue-rotate(356deg) brightness(90%) contrast(89%);
+
+    --danger: #FA5C5C;
+    --danger-alt: #272525;
+    --danger-filter: brightness(0) saturate(100%) invert(41%) sepia(73%) saturate(566%) hue-rotate(314deg) brightness(111%) contrast(96%);
+
+    --info: #57595B;
+    --info-alt: #fff;
+    --info-filter: brightness(0) saturate(100%) invert(33%) sepia(3%) saturate(416%) hue-rotate(169deg) brightness(99%) contrast(89%);
+
+    --success: #696FC7;
+    --success-alt: #272525;
+    --success-filter: brightness(0) saturate(100%) invert(45%) sepia(12%) saturate(2281%) hue-rotate(199deg) brightness(97%) contrast(91%);
+
+    --border: #afafaf;
+    --panel: #f4f8f2;
+    --input: rgba(235, 244, 211, 0.8);
+    --nav: rgba(255, 255, 255, 0.8);
+    --select: rgba(235, 244, 211, 0.8);
+    --suspend: rgba(0, 0, 0, 0.4);
+  }
+
+  hr {
+    border-top: 1px solid var(--border);
+  }
+
+  /* input 배경 삭제 */
+  input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* 간단한 에니메이션     */
+  @keyframes breath {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    /* 1.1로 키우면 더 확실히 보여 */
+  }
+
+  .breathing-effect {
+    /* transform이 작동하려면 block이나 inline-block이 필수야 */
+    display: inline-block;
+    animation: breath 2s ease-in-out infinite;
+  }
+}
+

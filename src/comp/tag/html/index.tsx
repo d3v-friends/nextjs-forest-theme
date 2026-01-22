@@ -1,7 +1,7 @@
 "use server";
 import React, {ReactNode} from "react";
 import localFont from "next/font/local";
-import "../../../../asset/style/index.css";
+import "../../../../asset/style/index.scss";
 
 interface Props {
 	children?: ReactNode;

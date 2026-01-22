@@ -42,7 +42,7 @@ export default function ({children, aside = []}: Readonly<Props>) {
 				</ScrollTop>
 			</div>
 
-			<section className={concat("w-4/5 pl-8")}>{children}</section>
+			<div className={concat("w-4/5 pl-8")}>{children}</div>
 		</div>
 	);
 }

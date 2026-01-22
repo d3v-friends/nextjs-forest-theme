@@ -1,50 +1,51 @@
 "use server";
 import React, {ReactNode} from "react";
-import {Button, ButtonColor, ButtonLine, ButtonOutline, Panel, PanelTitle} from "@src";
+import {ButtonColor} from "@src";
+import {concat} from "nextjs-tools";
 
 const colors: ButtonColor[] = ["primary", "danger", "success", "warning", "info"];
 
 export default async function () {
 	return (
 		<div className="grid grid-cols-1 gap-2 lg:gap-4">
-			<Panel>
-				<PanelTitle right={<Button>Click</Button>}>Fill</PanelTitle>
+			<section>
+				<h3>filled</h3>
 				<Cont>
 					{colors.map((color, key) => (
-						<Button
-							color={color}
+						<button
+							className={concat("filled", color)}
 							key={key}>
 							{color}
-						</Button>
+						</button>
 					))}
 				</Cont>
-			</Panel>
+			</section>
 
-			<Panel>
-				<PanelTitle>Outline</PanelTitle>
+			<section>
+				<h3>outlined</h3>
 				<Cont>
 					{colors.map((color, key) => (
-						<ButtonOutline
-							color={color}
+						<button
+							className={concat("outlined", color)}
 							key={key}>
 							{color}
-						</ButtonOutline>
+						</button>
 					))}
 				</Cont>
-			</Panel>
+			</section>
 
-			<Panel>
-				<PanelTitle>Line</PanelTitle>
+			<section>
+				<h3>lined</h3>
 				<Cont>
 					{colors.map((color, key) => (
-						<ButtonLine
-							color={color}
+						<button
+							className={concat("lined", color)}
 							key={key}>
 							{color}
-						</ButtonLine>
+						</button>
 					))}
 				</Cont>
-			</Panel>
+			</section>
 		</div>
 	);
 }
