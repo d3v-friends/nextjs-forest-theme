@@ -1,9 +1,3 @@
-// button
-export * from "./button/types";
-export {default as Button} from "./button/fill";
-export {default as ButtonLine} from "./button/line";
-export {default as ButtonOutline} from "./button/outline";
-
 // input
 export {default as InputCheckbox} from "./input/checkbox";
 export {default as InputDropdown} from "./input/dropdown";

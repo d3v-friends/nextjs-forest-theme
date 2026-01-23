@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode} from "react";
-import {Button, ButtonLine, cls} from "../..";
+import {cls} from "../..";
 import {concat} from "nextjs-tools";
 
 const Style = {
@@ -27,7 +27,11 @@ interface OkProps {
 function Ok({onClick, children = "확인"}: Readonly<OkProps>) {
 	return (
 		<div className={concat("flex justify-end", Style.padding)}>
-			<Button onClick={onClick}>{children}</Button>
+			<button
+				className="filled"
+				onClick={onClick}>
+				{children}
+			</button>
 		</div>
 	);
 }
@@ -42,12 +46,16 @@ interface OkCancelProps {
 function OkCancel({onClickOk, onClickCancel, okButton = "확인", cancelButton = "취소"}: Readonly<OkCancelProps>) {
 	return (
 		<div className={concat("flex justify-end", Style.padding)}>
-			<ButtonLine
+			<button
 				onClick={onClickOk}
-				className="mr-2">
+				className="lined mr-2">
 				{cancelButton}
-			</ButtonLine>
-			<Button onClick={onClickCancel}>{okButton}</Button>
+			</button>
+			<button
+				className="filled"
+				onClick={onClickCancel}>
+				{okButton}
+			</button>
 		</div>
 	);
 }

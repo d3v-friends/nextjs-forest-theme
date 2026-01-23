@@ -165,6 +165,70 @@
 
 // lined
 @layer forest {
+  button.lined {
+    border: 1px solid transparent;
+
+
+  }
+
   button.lined, button.lined.primary {
+    color: var(--primary);
+    filter: brightness(0.9);
+
+    &:hover {
+      border-color: var(--primary);
+    }
+
+    &:active {
+      filter: brightness(0.6);
+    }
+  }
+
+  button.lined.danger {
+    color: var(--danger);
+
+    &:hover {
+      border-color: var(--danger);
+    }
+
+    &:active {
+      filter: brightness(0.6);
+    }
+  }
+
+  button.lined.success {
+    color: var(--success);
+
+    &:hover {
+      border-color: var(--success);
+    }
+
+    &:active {
+      filter: brightness(0.6);
+    }
+  }
+
+  button.lined.warning {
+    color: var(--warning);
+
+    &:hover {
+      border-color: var(--warning);
+    }
+
+    &:active {
+      filter: brightness(0.6);
+    }
+  }
+
+  button.lined.info {
+    color: var(--info);
+
+    &:hover {
+      border-color: var(--info);
+    }
+
+    &:active {
+      filter: brightness(0.3);
+    }
   }
 }

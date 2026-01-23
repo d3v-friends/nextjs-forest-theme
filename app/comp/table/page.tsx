@@ -6,8 +6,8 @@ import {getSearchParams, NextPageProps, searchParamsParser} from "nextjs-tools";
 
 export default async function ({searchParams}: NextPageProps) {
 	const {page, size} = await getSearchParams(searchParams, {
-		page: searchParamsParser.number(0),
-		size: searchParamsParser.number(10),
+		page: searchParamsParser.pagination(0),
+		size: searchParamsParser.pagination(10),
 	});
 
 	return (

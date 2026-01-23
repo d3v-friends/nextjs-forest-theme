@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode} from "react";
-import {Button, genModal, Panel, PanelTitle, useModal} from "@src";
+import {genModal, Panel, PanelTitle, useModal} from "@src";
 
 export default function () {
 	const [modal, setModal] = useModal();
@@ -30,12 +30,16 @@ export default function () {
 			<Panel>
 				<PanelTitle>Modal</PanelTitle>
 				<Cont>
-					<Button onClick={onClickOk}>Ok</Button>
-					<Button
-						onClick={onClickOkCancel}
-						color="danger">
+					<button
+						className="filled"
+						onClick={onClickOk}>
+						Ok
+					</button>
+					<button
+						className="filled danger"
+						onClick={onClickOkCancel}>
 						OkCancel
-					</Button>
+					</button>
 				</Cont>
 			</Panel>
 		</div>

@@ -1,15 +1,6 @@
 "use client";
 import React, {useEffect, useRef, useState} from "react";
-import {
-	Button,
-	InputCheckbox,
-	InputDropdown,
-	InputNumber,
-	InputSelectCheckbox,
-	InputString,
-	Panel,
-	PanelTitle,
-} from "@src";
+import {InputCheckbox, InputDropdown, InputNumber, InputSelectCheckbox, InputString, Panel, PanelTitle} from "@src";
 
 interface Props {}
 
@@ -55,7 +46,7 @@ export default function ({}: Readonly<Props>) {
 					label="name with button"
 					value={state.name}
 					onChange={(name) => setState({...state, name})}
-					right={<Button>Hello</Button>}
+					right={<button className="filled">Hello</button>}
 				/>
 
 				<InputString

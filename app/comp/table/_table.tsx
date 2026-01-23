@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {Button, Pagination, Table} from "@src";
+import {Pagination, Table} from "@src";
 
 interface Props {
 	page: number;
@@ -42,15 +42,11 @@ export default function ({page, size}: Readonly<Props>) {
 							thead: "w-1/4 text-center",
 						},
 						row: (v) => (
-							<Button
-								onClick={(e) => {
-									e.stopPropagation();
-								}}
-								onMiddleClick={(e) => {
-									e.stopPropagation();
-								}}>
+							<button
+								className="filled w-full"
+								onMouseUp={(e) => e.stopPropagation()}>
 								버튼
-							</Button>
+							</button>
 						),
 					},
 				]}

@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode, useState} from "react";
-import {Button, InputString, Panel, PanelTitle, useServerAction} from "@src";
+import {InputString, Panel, PanelTitle, useServerAction} from "@src";
 import Form from "./form";
 import Action from "./action";
 
@@ -25,7 +25,11 @@ export default function ({children}: Readonly<Props>) {
 					{...Form.username}
 				/>
 
-				<Button type="submit">Submit</Button>
+				<button
+					className="filled"
+					type="submit">
+					Submit
+				</button>
 			</form>
 
 			<PanelTitle>State</PanelTitle>
