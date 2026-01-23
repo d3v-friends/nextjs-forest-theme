@@ -1,6 +1,16 @@
 "use client";
 import React, {useEffect, useRef, useState} from "react";
-import {InputCheckbox, InputDropdown, InputNumber, InputSelectCheckbox, InputString, Panel, PanelTitle} from "@src";
+import {
+	InputBase,
+	InputCheckbox,
+	InputDropdown,
+	InputNumber,
+	InputSelectCheckbox,
+	InputString,
+	Panel,
+	PanelTitle,
+} from "@src";
+import {regexp} from "nextjs-tools";
 
 interface Props {}
 
@@ -34,6 +44,15 @@ export default function ({}: Readonly<Props>) {
 
 	return (
 		<>
+			<h3>style</h3>
+			<InputBase
+				label="name"
+				value={state.name}
+				onChange={(name) => setState({...state, name})}
+				regexp={regexp.username}
+				invalidMessage="이름을 확인하여 주십시오."
+			/>
+
 			<form ref={formRef}>
 				<InputString
 					label="name"
@@ -66,7 +85,6 @@ export default function ({}: Readonly<Props>) {
 				<InputNumber
 					name="decimal"
 					label="decimal"
-					numberType="decimal"
 					value={state.decimal}
 					onChange={(decimal) => setState({...state, decimal})}
 				/>

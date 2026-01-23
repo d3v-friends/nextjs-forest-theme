@@ -1,26 +1,17 @@
 "use client";
-import React, {ReactNode, useEffect, useState} from "react";
-import Elems from "../base";
+import React, {ReactNode, useId} from "react";
 import Dropdown, {DropdownItem} from "../elem/dropdown";
-import {FnBase} from "nextjs-tools";
+import {concat, FnBase, fnVoid} from "nextjs-tools";
 
-type InputProps = Props & Partial<InputAttribute> & Partial<InputConvenience>;
-
-interface Props {
-	items: DropdownItem[];
+interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "hidden"> {
+	value: string;
 	onChange: FnBase<string>;
-}
-
-interface InputAttribute {
-	name: string;
-}
-
-interface InputConvenience {
-	label: ReactNode;
-	className: string;
+	items: DropdownItem[];
+	label?: ReactNode;
 }
 
 export default function ({
+	value,
 	items,
 	onChange,
 
@@ -30,28 +21,31 @@ export default function ({
 
 	// input attribute
 	name,
-}: Readonly<InputProps>) {
-	const [value, setValue] = useState("");
-	const {Label, InputHidden} = Elems;
-
-	useEffect(() => {
-		onChange(value);
-	}, [value]);
+	...attr
+}: Readonly<Props>) {
+	const id = useId();
 
 	return (
-		<div className={className}>
-			<Label className="mb-1">{label}</Label>
+		<div className={concat("input-container", className)}>
+			{!!label && <label htmlFor={id}>{label}</label>}
 
 			<Dropdown
 				className="w-full"
 				items={items}
-				onChange={setValue}
+				value={value}
+				onChange={onChange}
 			/>
 
-			<InputHidden
-				value={value}
-				name={name}
-			/>
+			{!!name && (
+				<input
+					{...attr}
+					hidden
+					id={id}
+					name={name}
+					value={value}
+					onChange={fnVoid}
+				/>
+			)}
 		</div>
 	);
 }

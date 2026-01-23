@@ -1,9 +1,10 @@
 // input
+export {default as InputBase} from "./input/base";
+export {default as InputNumber} from "./input/number";
 export {default as InputCheckbox} from "./input/checkbox";
 export {default as InputDropdown} from "./input/dropdown";
-export {default as InputString} from "./input/string";
-export {default as InputNumber} from "./input/number";
 export {default as InputSelectCheckbox} from "./input/select-checkbox";
+export {default as InputDate} from "./input/date";
 
 // layout
 export {default as AsideNav} from "./layout/aside-nav";

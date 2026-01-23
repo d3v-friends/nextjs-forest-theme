@@ -47,31 +47,26 @@ export default function ({items = [], value = "", onChange = fnVoid, className}:
 	if (items.length === 0) return null;
 
 	const item = items[idx];
-	return dropdown(
-		(isOpen) => (
-			<div
-				className={concat(
-					cls.height.input,
-					"border border-(--border) rounded p-2",
-					"flex items-center text-sm text-(--info)",
-					"min-w-20",
-					isOpen ? cls.background.input : ""
-				)}>
-				{item.label}
-				<div className="grow" />
-				<Image
-					className="filter-(--info-filter) ml-2"
-					src={isOpen ? ImgUp : ImgDown}
-					alt="down"
-					width={20}
-					height={20}
-				/>
-			</div>
-		),
-		{
-			className,
-		}
-	);
+	return dropdown((isOpen) => (
+		<div
+			className={concat(
+				cls.height.input,
+				"border border-(--border) rounded p-2",
+				"flex items-center text-sm text-(--info)",
+				"min-w-20",
+				isOpen ? cls.background.input : ""
+			)}>
+			{item.label}
+			<div className="grow" />
+			<Image
+				className="filter-(--info-filter) ml-2"
+				src={isOpen ? ImgUp : ImgDown}
+				alt="down"
+				width={20}
+				height={20}
+			/>
+		</div>
+	));
 }
 
 function getIndex(items: DropdownItem[], value: string): number {

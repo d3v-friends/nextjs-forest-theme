@@ -1,7 +1,7 @@
 "use client";
-import {MouseEventHandler, ReactNode, useEffect, useRef, useState} from "react";
+import {MouseEventHandler, ReactNode, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {createPortal} from "react-dom";
-import {concat, FnVoid, initPosition, Position, Undefined} from "nextjs-tools";
+import {concat, Coordinate, FnVoid, initPosition, Position} from "nextjs-tools";
 
 type Wrapper = (children: (isOpen: boolean) => ReactNode) => ReactNode;
 
@@ -13,11 +13,15 @@ export interface Options {
 }
 
 // todo 드롭다운 좌우 정렬 축 기준 추가하기
-export default function (dropdown: DropdownChildren = () => "", opts: Undefined<Partial<Options>> = {}): [Wrapper] {
+// 좌우 폭이 좁을때 가운대로 몰아주는 기능 추가하기
+export default function (dropdown: DropdownChildren = () => "", opts: Partial<Options> = {}): [Wrapper] {
 	const [open, setOpen] = useState(false);
 	const [pos, setPos] = useState<Position>(initPosition);
+	const [width, setWidth] = useState(0);
 	const setPosRef = useRef(setPos);
+	const setWidthRef = useRef(setWidth);
 	const buttonRef = useRef<HTMLButtonElement>(null);
+
 	const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
 		if (!buttonRef.current) return;
 
@@ -31,8 +35,11 @@ export default function (dropdown: DropdownChildren = () => "", opts: Undefined<
 			if (!buttonRef.current) return;
 			const {top, left, width, height} = buttonRef.current.getBoundingClientRect();
 			setPosRef.current({top, left, width, height});
+			setWidthRef.current(document.body.getBoundingClientRect().width);
 		};
+
 		window.addEventListener("resize", handler);
+		setWidthRef.current(document.body.getBoundingClientRect().width);
 
 		return () => {
 			window.removeEventListener("resize", handler);
@@ -62,15 +69,55 @@ export default function (dropdown: DropdownChildren = () => "", opts: Undefined<
 									setOpen(false);
 								}}
 							/>
-							<div
-								style={{left: pos.left, top: pos.top + pos.height}}
-								className={concat("absolute")}>
+							<Dropdown
+								windowWidth={width}
+								parent={pos}>
 								{dropdown({...pos, onClose: () => setOpen(false)})}
-							</div>
+							</Dropdown>
 						</>,
 						document.body
 					)}
 			</>
 		),
 	];
+}
+
+interface DropdownProps {
+	parent: Position;
+	children?: ReactNode;
+	windowWidth: number;
+}
+
+function Dropdown({parent, children, windowWidth}: Readonly<DropdownProps>) {
+	const [isInit, setIsInit] = useState(false);
+	const [pos, setPos] = useState<Coordinate>(initPosition);
+	const contRef = useRef<HTMLDivElement>(null);
+
+	useLayoutEffect(() => {
+		if (!contRef.current) return;
+		const {width} = contRef.current.getBoundingClientRect();
+
+		if (windowWidth < width) {
+			setPos({
+				top: parent.top + parent.height,
+				left: windowWidth - width,
+			});
+		} else {
+			setPos({
+				top: parent.top + parent.height,
+				left: parent.left,
+			});
+		}
+
+		setIsInit(true);
+	}, [parent, windowWidth]);
+
+	return (
+		<div
+			className={concat("absolute ", isInit ? "opacity-100" : "opacity-0")}
+			style={{left: pos.left, top: pos.top}}
+			ref={contRef}>
+			{children}
+		</div>
+	);
 }

@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode, useState} from "react";
-import {InputString, Panel, PanelTitle, useServerAction} from "@src";
+import {InputBase, Panel, PanelTitle, useServerAction} from "@src";
 import Form from "./form";
 import Action from "./action";
 
@@ -18,11 +18,14 @@ export default function ({children}: Readonly<Props>) {
 	return (
 		<>
 			<form action={action}>
-				<InputString
+				<InputBase
 					label="username"
 					value={args.username}
 					onChange={(username) => setArgs({...args, username})}
-					{...Form.username}
+					name={Form.username.name}
+					regexp={Form.username.regexp}
+					invalidMessage={Form.username.invalidMessage}
+					required
 				/>
 
 				<button
