@@ -1,6 +1,15 @@
 "use client";
 import React, {useState} from "react";
-import {InputBase, InputCheckbox, InputDate, InputDropdown, InputNumber, InputSelectCheckbox} from "@src";
+import {
+	DatePeriod,
+	InputBase,
+	InputCheckbox,
+	InputDate,
+	InputDatePeriod,
+	InputDropdown,
+	InputNumber,
+	InputSelectCheckbox,
+} from "@src";
 import {Nullable, regexp} from "nextjs-tools";
 
 interface Args {
@@ -10,7 +19,9 @@ interface Args {
 	unit: string;
 	select: string[];
 	date: Nullable<Date>;
+	datePeriod: DatePeriod;
 }
+
 export default function () {
 	const [state, setState] = useState<Args>({
 		name: "",
@@ -19,6 +30,7 @@ export default function () {
 		unit: "10",
 		select: [],
 		date: new Date(),
+		datePeriod: {},
 	});
 
 	return (
@@ -89,6 +101,13 @@ export default function () {
 				name="date"
 				value={state.date}
 				onChange={(date) => setState({...state, date})}
+			/>
+
+			<InputDatePeriod
+				label="period"
+				name="period"
+				value={state.datePeriod}
+				onChange={(datePeriod) => setState({...state, datePeriod})}
 			/>
 		</section>
 	);

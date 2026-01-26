@@ -1,10 +1,14 @@
-// input
+/* input */
 export {default as InputBase} from "./input/base";
 export {default as InputNumber} from "./input/number";
 export {default as InputCheckbox} from "./input/checkbox";
 export {default as InputDropdown} from "./input/dropdown";
 export {default as InputSelectCheckbox} from "./input/select-checkbox";
 export {default as InputDate} from "./input/date";
+
+// InputDatePeriod
+export {default as InputDatePeriod} from "./input/period";
+export type {DatePeriod} from "./input/period";
 
 // layout
 export {default as AsideNav} from "./layout/aside-nav";

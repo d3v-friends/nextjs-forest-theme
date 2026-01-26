@@ -5,12 +5,16 @@ import {concat, FnBase, fnVoid, Nullable} from "nextjs-tools";
 import {DateTime} from "luxon";
 import {useDropdown} from "@src/hook";
 
-interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "type" | "hidden"> {
+interface Props extends Omit<
+	React.InputHTMLAttributes<HTMLInputElement>,
+	"value" | "onChange" | "type" | "hidden" | "className"
+> {
 	value: Nullable<Date>;
 	onChange: FnBase<Nullable<Date>>;
 	label?: ReactNode;
 	format?: string;
 	timezone?: string;
+	className?: string;
 }
 
 export default function ({
@@ -21,11 +25,12 @@ export default function ({
 	name,
 	format = "yyyy-MM-dd",
 	timezone = "Asia/Seoul",
+	className = "mb-4",
 	...attr
 }: Readonly<Props>) {
 	const id = useId();
 	const strValue = value ? DateTime.fromJSDate(value).setZone(timezone).toFormat(format) : "";
-	const [dropdown] = useDropdown(({onClose}) => (
+	const [dropdown] = useDropdown(() => (
 		<Calendar
 			className="pt-4"
 			value={value}
@@ -49,7 +54,7 @@ export default function ({
 	}, []);
 
 	return (
-		<>
+		<div className={className}>
 			{!!label && <label htmlFor={id}>{label}</label>}
 			{!!name && (
 				<input
@@ -73,6 +78,6 @@ export default function ({
 					</>
 				))}
 			</div>
-		</>
+		</div>
 	);
 }

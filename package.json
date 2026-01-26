@@ -1,10 +1,9 @@
 {
 	"name": "nextjs-forest-theme",
 	"dependencies": {
-		"@types/luxon": "^3.7.1",
-		"luxon": "^3.7.2",
+		"luxon": "3.7.2",
 		"next": "16.1.1",
-		"nextjs-tools": "github:d3v-friends/nextjs-tools#3.0.5",
+		"nextjs-tools": "github:d3v-friends/nextjs-tools#3.0.6",
 		"react": "19.2.3",
 		"react-calendar": "^6.0.0",
 		"react-dom": "19.2.3",
@@ -16,6 +15,7 @@
 		"@types/node": "25.0.7",
 		"@types/react": "19.2.8",
 		"@types/react-dom": "19.2.3",
+		"@types/luxon": "3.7.1",
 		"prettier": "3.7.4",
 		"tailwindcss": "4.1.18",
 		"typescript": "5.9.3"

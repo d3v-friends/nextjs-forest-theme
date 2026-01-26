@@ -8,18 +8,15 @@ importers:
 
   .:
     dependencies:
-      '@types/luxon':
-        specifier: ^3.7.1
-        version: 3.7.1
       luxon:
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2
       next:
         specifier: 16.1.1
         version: 16.1.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.97.3)
       nextjs-tools:
-        specifier: github:d3v-friends/nextjs-tools#3.0.5
-        version: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/833330634ee54f055031d11e0b91b98927bf550a
+        specifier: github:d3v-friends/nextjs-tools#3.0.6
+        version: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/98a6bdc95f3626bec945e5bc5678f43ca0b8e5d9
       react:
         specifier: 19.2.3
         version: 19.2.3
@@ -39,6 +36,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: 4.1.18
         version: 4.1.18
+      '@types/luxon':
+        specifier: 3.7.1
+        version: 3.7.1
       '@types/node':
         specifier: 25.0.7
         version: 25.0.7
@@ -743,8 +743,8 @@ packages:
       sass:
         optional: true
 
-  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/833330634ee54f055031d11e0b91b98927bf550a:
-    resolution: {tarball: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/833330634ee54f055031d11e0b91b98927bf550a}
+  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/98a6bdc95f3626bec945e5bc5678f43ca0b8e5d9:
+    resolution: {tarball: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/98a6bdc95f3626bec945e5bc5678f43ca0b8e5d9}
     version: 0.0.0
 
   node-addon-api@7.1.1:
@@ -1472,7 +1472,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/833330634ee54f055031d11e0b91b98927bf550a:
+  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/98a6bdc95f3626bec945e5bc5678f43ca0b8e5d9:
     dependencies:
       '@types/luxon': 3.7.1
       decimal.js: 10.6.0
