@@ -66,7 +66,7 @@ export default function ({
 				{dropdown((isOpen) => (
 					<>
 						<div
-							className={concat("flex hover:underline")}
+							className={concat("flex hover:underline h-(--elem-height) items-center")}
 							suppressHydrationWarning>
 							{strValue}
 						</div>
