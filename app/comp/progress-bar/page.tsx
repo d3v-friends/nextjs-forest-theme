@@ -5,15 +5,16 @@ import {Color, ProgressBar} from "@src";
 const colors: Color[] = ["primary", "danger", "success", "warning", "info"];
 
 export default function () {
-	const max = 100;
+	const max = 10000;
+	const step = 1000;
 	const [value, setValue] = useState(0);
 	const valueRef = useRef(value);
 	const setValueRef = useRef(setValue);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			valueRef.current += 10;
-			if (100 < valueRef.current) valueRef.current = 0;
+			valueRef.current += step;
+			if (max < valueRef.current) valueRef.current = 0;
 			setValueRef.current(valueRef.current);
 		}, 1000);
 		return () => clearInterval(interval);
@@ -29,6 +30,7 @@ export default function () {
 						max={max}
 						value={value}
 						color={color}
+						detail
 					/>
 				))}
 			</section>
