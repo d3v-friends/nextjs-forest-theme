@@ -44,12 +44,20 @@ const asideItems: AsideSector[] = [
 		title: "Component",
 		links: [
 			{
+				href: "/comp/alert",
+				label: "alert",
+			},
+			{
 				href: "/comp/button",
 				label: "button",
 			},
 			{
 				href: "/comp/modal",
 				label: "modal",
+			},
+			{
+				href: "/comp/progress-bar",
+				label: "progress bar",
 			},
 			{
 				href: "/comp/table",

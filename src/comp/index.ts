@@ -8,7 +8,6 @@ export {default as InputDate} from "./input/date";
 
 // InputDatePeriod
 export {default as InputDatePeriod} from "./input/period";
-export type {DatePeriod} from "./input/period";
 
 // layout
 export {default as AsideNav} from "./layout/aside-nav";
@@ -28,6 +27,9 @@ export {default as Pagination} from "./table/pagination";
 
 // tag
 export {default as HTML} from "./tag/html";
+
+// widget
+export {default as ProgressBar} from "./widget/progress-bar";
 
 // wrap
 export {default as ScrollTop} from "./wrap/scroll-top";

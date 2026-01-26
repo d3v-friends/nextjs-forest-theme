@@ -19,6 +19,7 @@ export default {
 		info: "bg-(--info)",
 		input: "bg-(--input)",
 		suspend: "bg-(--suspend)",
+		alert: "bg-(--suspend) backdrop-blur-xs",
 	},
 	hover: {
 		background: {

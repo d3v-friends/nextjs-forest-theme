@@ -13,3 +13,6 @@ export type NodeEnv = "development" | "production" | "test";
 
 // styles
 export type StyleBoolean = Record<StringBoolean, string>;
+
+// color
+export type Color = "primary" | "danger" | "info" | "success" | "warning";
