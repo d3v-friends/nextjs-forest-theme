@@ -21,6 +21,13 @@ export default {
 		suspend: "bg-(--suspend)",
 		alert: "bg-(--suspend) backdrop-blur-xs",
 	},
+	filter: {
+		primary: "filter-(--primary-filter)",
+		danger: "filter-(--danger-filter)",
+		success: "filter-(--success-filter)",
+		warning: "filter-(--warning-filter)",
+		info: "filter-(--info-filter)",
+	},
 	hover: {
 		background: {
 			primary: "hover:bg-(--primary)",

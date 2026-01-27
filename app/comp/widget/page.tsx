@@ -1,6 +1,7 @@
 "use client";
 import React, {useEffect, useRef, useState} from "react";
-import {Color, ProgressBar} from "@src";
+import {Color, IconHeader, ProgressBar} from "@src";
+import ImgProgress from "web-asset/svg/regular/fi-rr-bars-progress.svg";
 
 const colors: Color[] = ["primary", "danger", "success", "warning", "info"];
 
@@ -30,7 +31,11 @@ function ProgressBarWidget() {
 
 	return (
 		<section>
-			<h3 className="mb-2">Progress bar</h3>
+			<IconHeader
+				icon={ImgProgress}
+				label="details">
+				Progress bar
+			</IconHeader>
 
 			{colors.map((color, key) => (
 				<ProgressBar

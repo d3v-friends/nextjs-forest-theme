@@ -1,25 +1,46 @@
 import React, {ReactNode} from "react";
 import Image, {StaticImageData} from "next/image";
+import {Color, StringBoolean} from "../../../types";
+import {concat} from "nextjs-tools";
+import cls from "../../../fn/class-names";
 
-interface Props extends Omit<React.HTMLAttributes<HTMLHeadingElement>, "className" | "children"> {
+interface Props {
 	icon?: StaticImageData;
+	iconColor?: Color;
 	className?: string;
 	children?: ReactNode;
 	label?: ReactNode;
+	right?: ReactNode;
 }
 
-export default function ({children, className, icon, ...attr}: Readonly<Props>) {
+const ImgStyle: Record<StringBoolean, string> = {
+	true: "w-10 h-10",
+	false: "w-8 h-8",
+};
+
+export default function ({children, className = "mb-2", icon, iconColor = "primary", label, right}: Readonly<Props>) {
 	return (
-		<div className="flex items-center">
-			{icon && (
-				<Image
-					src={icon}
-					alt="icon"
-					width={20}
-					height={20}
-				/>
-			)}
-			<h3>{children}</h3>
+		<div className={className}>
+			<div className="flex items-center">
+				{icon && (
+					<Image
+						className={concat(
+							"aspect-square mr-2",
+							cls.filter[iconColor],
+							ImgStyle[label ? "true" : "false"]
+						)}
+						src={icon}
+						alt="icon"
+						width={30}
+						height={30}
+					/>
+				)}
+				<div className="grow">
+					<h4 className="leading-tight">{children}</h4>
+					<p className="text-(--info) leading-tight">{label}</p>
+				</div>
+				{!!right && <div className="pl-2">{right}</div>}
+			</div>
 		</div>
 	);
 }
