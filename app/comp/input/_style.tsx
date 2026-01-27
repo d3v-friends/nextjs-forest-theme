@@ -1,7 +1,6 @@
 "use client";
 import React, {useState} from "react";
 import {
-	DatePeriod,
 	InputBase,
 	InputCheckbox,
 	InputDate,
@@ -10,7 +9,7 @@ import {
 	InputNumber,
 	InputSelectCheckbox,
 } from "@src";
-import {Nullable, regexp} from "nextjs-tools";
+import {DatePeriod, Nullable, regexp} from "nextjs-tools";
 
 interface Args {
 	name: string;

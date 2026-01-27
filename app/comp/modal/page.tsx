@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import {forestAlert, forestOkCancel} from "@src";
+import {alert, okCancel} from "@src";
 
 export default function () {
 	const onClick = () => {
-		forestAlert(
+		alert(
 			<>
 				<h4>forestAlert</h4>
 				<p>that's good</p>
@@ -13,7 +13,7 @@ export default function () {
 	};
 
 	const onClickHeader = () => {
-		forestAlert(
+		alert(
 			<>
 				<p>that's good</p>
 			</>,
@@ -24,12 +24,14 @@ export default function () {
 	};
 
 	const onClickOkCancel = () => {
-		forestOkCancel(<p>Choose one?</p>, {
+		okCancel(<p>Choose one?</p>, {
 			header: "Ok Cancel",
 			onClickOk: () => console.log("ok"),
 			onClickCancel: () => console.log("cancel"),
 		});
 	};
+
+	const onClickDropdown = () => {};
 	return (
 		<div className="grid grid-cols-1 gap-2 lg:gap-4">
 			<section>
@@ -58,6 +60,11 @@ export default function () {
 						Open
 					</button>
 				</div>
+			</section>
+
+			<section>
+				<h3>Dropdown</h3>
+				<button className="outlined">Dropdown</button>
 			</section>
 		</div>
 	);

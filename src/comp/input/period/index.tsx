@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode, useEffect, useId, useState} from "react";
-import {Coordinate, DatePeriod, FnBase, fnVoid, initCoordinate, Nullable, Undefined} from "nextjs-tools";
+import {Coordinate, DatePeriod, FnBase, FnVoid, fnVoid, initCoordinate, Nullable, Undefined} from "nextjs-tools";
 import {DateTime} from "luxon";
 import {useDropdown} from "@src/hook";
 import Calendar from "../elem/calendar";
@@ -15,6 +15,9 @@ interface Props extends Omit<
 	label?: ReactNode;
 	className?: string;
 	format?: string;
+	empty?: ReactNode;
+	close?: ReactNode;
+	reset?: ReactNode;
 }
 
 export default function ({
@@ -25,23 +28,30 @@ export default function ({
 	label,
 	name,
 	className,
+	empty = "없음",
+	close = "닫기",
+	reset = "초기화",
 	...attr
 }: Readonly<Props>) {
 	const id = useId();
 	const [pos, setPos] = useState<Coordinate>(initCoordinate);
-	const [fromDrop] = useDropdown(() => (
-		<Calendar
-			className="pt-4"
-			value={value.from || null}
-			onChange={(from) => onChange({...value, from: setTimezone(from, timezone)})}
+	const [fromDrop] = useDropdown(({onClose}) => (
+		<Dropdown
+			value={value.from}
+			onChange={(from) => onChange({...value, from})}
+			onClose={onClose}
+			reset={reset}
+			close={close}
 		/>
 	));
 
-	const [toDrop] = useDropdown(() => (
-		<Calendar
-			className="pt-4"
-			value={value.to || null}
-			onChange={(to) => onChange({...value, to: setTimezone(to, timezone)})}
+	const [toDrop] = useDropdown(({onClose}) => (
+		<Dropdown
+			value={value.to}
+			onChange={(to) => onChange({...value, to})}
+			onClose={onClose}
+			reset={reset}
+			close={close}
 		/>
 	));
 
@@ -49,11 +59,9 @@ export default function ({
 		onChange(adjustTime({value, timezone}));
 	}, []);
 
-	const onClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {};
-
 	const strValue = {
-		from: value.from ? DateTime.fromJSDate(value.from).setZone(timezone).toFormat(format) : "-",
-		to: value.to ? DateTime.fromJSDate(value.to).setZone(timezone).toFormat(format) : "-",
+		from: value.from ? DateTime.fromJSDate(value.from).setZone(timezone).toFormat(format) : empty,
+		to: value.to ? DateTime.fromJSDate(value.to).setZone(timezone).toFormat(format) : empty,
 	};
 
 	return (
@@ -131,5 +139,42 @@ interface DateProps {
 function Date({children}: Readonly<DateProps>) {
 	return (
 		<div className="border-b border-(--border) h-(--elem-height) flex items-center hover:underline">{children}</div>
+	);
+}
+
+interface DropdownProps {
+	value: Undefined<Date>;
+	onChange: FnBase<Undefined<Date>>;
+	onClose: FnVoid;
+	reset: ReactNode;
+	close: ReactNode;
+	timezone?: string;
+}
+
+function Dropdown({value, onChange, onClose, reset, close, timezone}: Readonly<DropdownProps>) {
+	return (
+		<>
+			<Calendar
+				className="pt-4"
+				value={value || null}
+				onChange={(from) => onChange(setTimezone(from, timezone))}
+			/>
+
+			<div className="text-right pt-2">
+				<button
+					className="lined info mr-2"
+					onClick={() => {
+						onChange(undefined);
+						onClose();
+					}}>
+					{reset}
+				</button>
+				<button
+					className="outlined"
+					onClick={onClose}>
+					{close}
+				</button>
+			</div>
+		</>
 	);
 }

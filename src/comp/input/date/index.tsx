@@ -15,6 +15,9 @@ interface Props extends Omit<
 	format?: string;
 	timezone?: string;
 	className?: string;
+	close?: ReactNode;
+	reset?: ReactNode;
+	empty?: ReactNode;
 }
 
 export default function ({
@@ -26,16 +29,36 @@ export default function ({
 	format = "yyyy-MM-dd",
 	timezone = "Asia/Seoul",
 	className = "mb-4",
+	close = "닫기",
+	reset = "초기화",
+	empty = "없음",
 	...attr
 }: Readonly<Props>) {
 	const id = useId();
-	const strValue = value ? DateTime.fromJSDate(value).setZone(timezone).toFormat(format) : "";
-	const [dropdown] = useDropdown(() => (
-		<Calendar
-			className="pt-4"
-			value={value}
-			onChange={onChange}
-		/>
+	const strValue = value ? DateTime.fromJSDate(value).setZone(timezone).toFormat(format) : empty;
+	const [dropdown] = useDropdown(({onClose}) => (
+		<>
+			<Calendar
+				className="pt-4 pb-2"
+				value={value}
+				onChange={onChange}
+			/>
+			<div className="text-right">
+				<button
+					className="lined info mr-2"
+					onClick={() => {
+						onChange(null);
+						onClose();
+					}}>
+					{reset}
+				</button>
+				<button
+					className="outlined"
+					onClick={onClose}>
+					{close}
+				</button>
+			</div>
+		</>
 	));
 
 	useEffect(() => {
