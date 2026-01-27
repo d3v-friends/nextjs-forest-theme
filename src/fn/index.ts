@@ -5,6 +5,7 @@ export {default as cls} from "./class-names";
 export {default as modal} from "./modal";
 export {default as alert} from "./modal/alert";
 export {default as okCancel} from "./modal/ok-cancel";
+export {default as toast} from "./modal/toast";
 export type {ModalOptions, ModalChildren} from "./modal";
 export type {AlertOptions, AlertChildren} from "./modal/alert";
 export type {OkCancelOptions, OkCancelChildren} from "./modal/ok-cancel";

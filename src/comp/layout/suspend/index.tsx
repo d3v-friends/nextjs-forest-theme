@@ -46,7 +46,7 @@ export default function ({children = <Children />, pending, wait = 0.2}: Readonl
 				"fixed w-full h-full top-0 left-0",
 				"flex items-center justify-center",
 				cls.transition.default,
-				cls.zIndex.loading,
+				cls.zIndex.modal,
 				show ? "backdrop-blur-xs bg-(--suspend) opacity-100" : "opacity-0"
 			)}>
 			{children}

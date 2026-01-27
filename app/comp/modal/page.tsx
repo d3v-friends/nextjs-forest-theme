@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
-import {alert, IconHeader, okCancel} from "@src";
+import {alert, Color, IconHeader, okCancel, toast} from "@src";
 import ImgToast from "web-asset/svg/regular/fi-rr-message-alert.svg";
+import ImgAlert from "web-asset/svg/regular/fi-rr-message-alert.svg";
+import ImgOkCancel from "web-asset/svg/regular/fi-rr-selection.svg";
 
+const colors: Color[] = ["primary", "danger", "success", "warning", "info"];
 export default function () {
 	const onClick = () => {
 		alert(
@@ -32,11 +35,22 @@ export default function () {
 		});
 	};
 
-	const onClickDropdown = () => {};
+	const onClickToast = (color: Color) => {
+		toast(color, {
+			color,
+		});
+	};
+
 	return (
 		<div className="grid grid-cols-1 gap-2 lg:gap-4">
 			<section>
-				<h3>Alert</h3>
+				<IconHeader
+					color="danger"
+					icon={ImgAlert}
+					iconColor="danger"
+					label="alert function">
+					Alert
+				</IconHeader>
 				<div className="grid grid-cols-4 gap-2 lg:gap-4">
 					<button
 						className="filled"
@@ -53,7 +67,11 @@ export default function () {
 			</section>
 
 			<section>
-				<h3>Ok cancel</h3>
+				<IconHeader
+					icon={ImgOkCancel}
+					label="select your choice">
+					Ok cancel
+				</IconHeader>
 				<div className="grid grid-cols-4 gap-2 lg:gap-4">
 					<button
 						className="filled"
@@ -71,7 +89,17 @@ export default function () {
 					label="toast popup">
 					Toast
 				</IconHeader>
-				<button className="outlined">Toast</button>
+
+				<div className="grid grid-cols-5 gap-2 lg:gap-4">
+					{colors.map((color, key) => (
+						<button
+							key={key}
+							className="outlined"
+							onClick={() => onClickToast(color)}>
+							{color}
+						</button>
+					))}
+				</div>
 			</section>
 		</div>
 	);

@@ -1,9 +1,9 @@
 "use server";
 import React, {ReactNode} from "react";
-import {ButtonColor} from "@src";
+import {Color} from "@src";
 import {concat} from "nextjs-tools";
 
-const colors: ButtonColor[] = ["primary", "danger", "success", "warning", "info"];
+const colors: Color[] = ["primary", "danger", "success", "warning", "info"];
 
 export default async function () {
 	return (

@@ -1,8 +1,8 @@
 export default {
 	zIndex: {
-		nav: "z-10",
-		loading: "z-50",
-		modal: "z-49",
+		nav: "z-(--z-nav)",
+		modal: "z-(--z-modal)",
+		toast: "z-(--z-toast)",
 	},
 	width: {
 		max: "max-w-[1440px]",

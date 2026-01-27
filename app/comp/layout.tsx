@@ -12,6 +12,7 @@ export default async function ({children}: Readonly<Props>) {
 		<TopNav
 			nav={<Nav />}
 			footer={<Footer />}>
+			<div id="toast" />
 			<AsideNav aside={asideItems}>{children}</AsideNav>
 		</TopNav>
 	);
