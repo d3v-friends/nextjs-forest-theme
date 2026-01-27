@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import {alert, okCancel} from "@src";
+import {alert, IconHeader, okCancel} from "@src";
+import ImgToast from "web-asset/svg/regular/fi-rr-message-alert.svg";
 
 export default function () {
 	const onClick = () => {
@@ -63,8 +64,14 @@ export default function () {
 			</section>
 
 			<section>
-				<h3>Dropdown</h3>
-				<button className="outlined">Dropdown</button>
+				<IconHeader
+					icon={ImgToast}
+					iconColor="success"
+					color="success"
+					label="toast popup">
+					Toast
+				</IconHeader>
+				<button className="outlined">Toast</button>
 			</section>
 		</div>
 	);

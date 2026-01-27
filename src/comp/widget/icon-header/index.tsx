@@ -5,12 +5,13 @@ import {concat} from "nextjs-tools";
 import cls from "../../../fn/class-names";
 
 interface Props {
-	icon?: StaticImageData;
-	iconColor?: Color;
-	className?: string;
-	children?: ReactNode;
-	label?: ReactNode;
-	right?: ReactNode;
+	icon: StaticImageData;
+	iconColor: Color;
+	color: Color;
+	className: string;
+	children: ReactNode;
+	label: ReactNode;
+	right: ReactNode;
 }
 
 const ImgStyle: Record<StringBoolean, string> = {
@@ -18,7 +19,15 @@ const ImgStyle: Record<StringBoolean, string> = {
 	false: "w-8 h-8",
 };
 
-export default function ({children, className = "mb-2", icon, iconColor = "primary", label, right}: Readonly<Props>) {
+export default function ({
+	children,
+	className = "mb-2",
+	icon,
+	color = "primary",
+	iconColor = "primary",
+	label,
+	right,
+}: Readonly<Partial<Props>>) {
 	return (
 		<div className={className}>
 			<div className="flex items-center">
@@ -36,7 +45,7 @@ export default function ({children, className = "mb-2", icon, iconColor = "prima
 					/>
 				)}
 				<div className="grow">
-					<h4 className="leading-tight">{children}</h4>
+					<h4 className={concat("leading-tight", cls.text[color])}>{children}</h4>
 					<p className="text-(--info) leading-tight">{label}</p>
 				</div>
 				{!!right && <div className="pl-2">{right}</div>}

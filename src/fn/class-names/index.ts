@@ -49,6 +49,11 @@ export default {
 	text: {
 		deepPrimary: "text-(--primary) brightness-70",
 		title: "text-[#41644A]",
+		primary: "text-(--primary)",
+		danger: "text-(--danger)",
+		success: "text-(--success)",
+		warning: "text-(--warning)",
+		info: "text-(--info)",
 	},
 	shadow: {
 		normal: "shadow-2xl shadow-[rgba(0,0,0,0.04)]",
