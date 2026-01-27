@@ -1,26 +1,26 @@
 "use client";
 import React, {ReactNode, useEffect, useRef} from "react";
+import {FnVoid} from "nextjs-tools";
 import {createRoot} from "react-dom/client";
-import {fnVoid, FnVoid} from "nextjs-tools";
 
-export type AlertFC = (onClose: FnVoid) => ReactNode;
+type ModalFC = (onClose: FnVoid) => ReactNode;
 
-export type AlertChildren = AlertFC | ReactNode;
+export type ModalChildren = ModalFC | ReactNode;
 
-export interface AlertOptions {
+export interface ModalOptions {
 	backdrop: boolean;
 	escape: boolean;
-	header: ReactNode;
-	onClick: React.MouseEventHandler<HTMLButtonElement>;
-	button: ReactNode;
 }
 
-export default function (children: AlertChildren = () => "", opts: Partial<AlertOptions> = {}) {
+export default function (children: ModalFC | ReactNode, opts: Partial<ModalOptions> = {}) {
 	const cont = document.createElement("div");
 	document.body.appendChild(cont);
 
 	const root = createRoot(cont);
-	const onClose = () => root.unmount();
+	const onClose = () => {
+		root.unmount();
+		cont.remove();
+	};
 
 	let target: ReactNode;
 	if (typeof children === "function") {
@@ -43,15 +43,7 @@ interface AlertProps {
 	onClose: FnVoid;
 }
 
-function Alert({
-	onClose,
-	children,
-	backdrop = true,
-	escape = true,
-	header,
-	onClick = fnVoid,
-	button = "확인",
-}: Readonly<AlertProps & Partial<AlertOptions>>) {
+function Alert({onClose, children, backdrop = true, escape = true}: Readonly<AlertProps & Partial<ModalOptions>>) {
 	const onCloseRef = useRef(onClose);
 
 	useEffect(() => {
@@ -78,22 +70,7 @@ function Alert({
 				if (e.button !== 0) return;
 				if (backdrop) onClose();
 			}}>
-			<div
-				className="cont"
-				onMouseUp={(e) => e.stopPropagation()}>
-				{!!header && <h3 className="header">{header}</h3>}
-				<article>{children}</article>
-				<div className="text-right p-2">
-					<button
-						className="filled"
-						onClick={(e) => {
-							onClick(e);
-							onClose();
-						}}>
-						{button}
-					</button>
-				</div>
-			</div>
+			<div onMouseUp={(e) => e.stopPropagation()}>{children}</div>
 		</dialog>
 	);
 }

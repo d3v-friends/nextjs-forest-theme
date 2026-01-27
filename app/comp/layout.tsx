@@ -52,10 +52,6 @@ const asideItems: AsideSector[] = [
 				label: "button",
 			},
 			{
-				href: "/comp/modal",
-				label: "modal",
-			},
-			{
 				href: "/comp/progress-bar",
 				label: "progress bar",
 			},

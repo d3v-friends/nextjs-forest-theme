@@ -37,8 +37,14 @@
     -ms-user-select: none;
   }
 
+  body {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+  }
 
   body {
+
+
     --elem-height: 2.5rem;
 
     --primary: #6fe463;
