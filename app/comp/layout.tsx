@@ -52,8 +52,8 @@ const asideItems: AsideSector[] = [
 				label: "button",
 			},
 			{
-				href: "/comp/progress-bar",
-				label: "progress bar",
+				href: "/comp/widget",
+				label: "widget",
 			},
 			{
 				href: "/comp/table",

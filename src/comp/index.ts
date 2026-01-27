@@ -29,6 +29,7 @@ export {default as HTML} from "./tag/html";
 
 // widget
 export {default as ProgressBar} from "./widget/progress-bar";
+export {default as IconHeader} from "./widget/icon-header";
 
 // wrap
 export {default as ScrollTop} from "./wrap/scroll-top";

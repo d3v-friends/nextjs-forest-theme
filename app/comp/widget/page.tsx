@@ -5,6 +5,14 @@ import {Color, ProgressBar} from "@src";
 const colors: Color[] = ["primary", "danger", "success", "warning", "info"];
 
 export default function () {
+	return (
+		<div className="grid grid-cols-1 gap-2 lg:gap-4">
+			<ProgressBarWidget />
+		</div>
+	);
+}
+
+function ProgressBarWidget() {
 	const max = 10000;
 	const step = 1000;
 	const [value, setValue] = useState(0);
@@ -21,19 +29,18 @@ export default function () {
 	}, []);
 
 	return (
-		<div className="grid grid-cols-1 gap-2 lg:gap-4">
-			<section>
-				<h3>Page</h3>
-				{colors.map((color, key) => (
-					<ProgressBar
-						key={key}
-						max={max}
-						value={value}
-						color={color}
-						detail
-					/>
-				))}
-			</section>
-		</div>
+		<section>
+			<h3 className="mb-2">Progress bar</h3>
+
+			{colors.map((color, key) => (
+				<ProgressBar
+					key={key}
+					max={max}
+					value={value}
+					color={color}
+					detail
+				/>
+			))}
+		</section>
 	);
 }
