@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {alert, Color, IconHeader, okCancel, toast} from "@src";
+import {alert, Color, IconHeader, okCancel, SectionHeader, toast} from "@src";
 import ImgToast from "web-asset/svg/regular/fi-rr-message-alert.svg";
 import ImgAlert from "web-asset/svg/regular/fi-rr-message-alert.svg";
 import ImgOkCancel from "web-asset/svg/regular/fi-rr-selection.svg";
@@ -43,6 +43,11 @@ export default function () {
 
 	return (
 		<div className="grid grid-cols-1 gap-2 lg:gap-4">
+			<SectionHeader
+				color="info"
+				right="abcd">
+				Modal (모달)
+			</SectionHeader>
 			<section>
 				<IconHeader
 					color="danger"
