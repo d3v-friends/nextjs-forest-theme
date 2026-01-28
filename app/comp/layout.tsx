@@ -97,6 +97,11 @@ const asideItems: AsideSector[] = [
 				label: "tab",
 				icon: ImgLogo,
 			},
+			{
+				href: "/comp/wrap",
+				label: "wrap",
+				icon: ImgLogo,
+			},
 		],
 	},
 ];

@@ -16,3 +16,5 @@ export type StyleBoolean = Record<StringBoolean, string>;
 
 // color
 export type Color = "primary" | "danger" | "info" | "success" | "warning";
+
+export type Direction = "top" | "bottom" | "left" | "right";
