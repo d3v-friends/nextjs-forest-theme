@@ -36,11 +36,11 @@ export default function ({items = [], children, className}: Readonly<Props>) {
 
 	return (
 		<div className={className}>
-			<div className="flex items-baseline">
+			<div className="flex">
 				{items.map((v, key) => (
 					<Link
 						className={concat(
-							"block pt-2 pb-2 pl-4 pr-4 h-12 overflow-hidden",
+							"block pt-2 pb-2 pl-4 pr-4 h-10 overflow-hidden",
 							"border-t border-r border-(--border)",
 							"rounded-tl-lg rounded-tr-lg",
 							"flex items-center",
