@@ -9,6 +9,7 @@ export {default as InputDatePeriod} from "./input/period";
 
 /* layout */
 export {default as AsideNav} from "./layout/aside-nav";
+export type {AsideSector, AsideSectorLink} from "./layout/aside-nav";
 export {default as NavElems} from "./layout/nav-elems";
 export {default as Panel} from "./layout/panel";
 export {default as PanelTitle} from "./layout/panel-title";
@@ -34,3 +35,5 @@ export {default as SectionHeader} from "./widget/section-header";
 
 /* wrap */
 export {default as ScrollTop} from "./wrap/scroll-top";
+export {default as DelayUnmount} from "./wrap/delay-unmount";
+export {default as ScrollLock} from "./wrap/scroll-lock";

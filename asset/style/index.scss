@@ -71,6 +71,7 @@
     --panel: #f4f8f2;
     --input: rgba(235, 244, 211, 0.8);
     --nav: rgba(255, 255, 255, 0.8);
+    --aside-select: rgba(218, 227, 186, 0.8);
     --select: rgba(235, 244, 211, 0.8);
     --suspend: rgba(0, 0, 0, 0.4);
     --shadow: rgba(0, 0, 0, 0.1);
@@ -83,6 +84,7 @@
     // z-index
     --z-toast: 10;
     --z-nav: 20;
+    --z-floating: 20;
     --z-modal: 50;
   }
 

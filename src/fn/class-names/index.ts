@@ -39,6 +39,9 @@ export default {
 		shortAll: "[&>*]:transition-all duration-300",
 		instant: "transition-all duration-150",
 	},
+	animation: {
+		fadeIn: "animated fade-in",
+	},
 	border: {
 		bottom: "border-b border-(--border)",
 	},
