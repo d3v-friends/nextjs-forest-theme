@@ -4,7 +4,7 @@ import ImgMenu from "web-asset/svg/regular/fi-rr-menu-burger.svg";
 import Image from "next/image";
 import {concat, FnBase, FnVoid} from "nextjs-tools";
 import {createPortal} from "react-dom";
-import {IsActive, ScrollLock} from "@src";
+import {IsActive, ScrollLock} from "../../..";
 import ImgClose from "web-asset/svg/regular/fi-rr-arrow-circle-left.svg";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
