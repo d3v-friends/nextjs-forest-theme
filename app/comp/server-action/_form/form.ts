@@ -1,5 +1,5 @@
-import {form} from "@src";
+import {serverActionForm} from "nextjs-tools";
 
-export default form.create({
-	username: form.username(),
+export default serverActionForm.create({
+	username: serverActionForm.username(),
 });

@@ -1,0 +1,6 @@
+export const DefaultInputInterceptor = (e) => e.target.value;
+export const DefaultOnClickCheckboxInterceptor = (e, value) => {
+    e.stopPropagation();
+    return value;
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHlwZXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvY29tcC9pbnB1dC90eXBlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFNQSxNQUFNLENBQUMsTUFBTSx1QkFBdUIsR0FBcUIsQ0FBQyxDQUFDLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDO0FBQy9FLE1BQU0sQ0FBQyxNQUFNLGlDQUFpQyxHQUErQixDQUFDLENBQUMsRUFBRSxLQUFLLEVBQUUsRUFBRTtJQUN6RixDQUFDLENBQUMsZUFBZSxFQUFFLENBQUM7SUFDcEIsT0FBTyxLQUFLLENBQUM7QUFDZCxDQUFDLENBQUMifQ==

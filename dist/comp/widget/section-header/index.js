@@ -1,0 +1,7 @@
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
+import { cls } from "../../../fn/index.js";
+import { concat } from "nextjs-tools";
+export default function ({ children, className, color = "primary", right }) {
+    return (_jsx("div", { className: className, children: _jsxs("div", { className: "flex items-center", children: [_jsx("h1", { className: concat(cls.text[color], cls.font.raleway), children: children }), right && (_jsxs(_Fragment, { children: [_jsx("div", { className: "grow" }), right] }))] }) }));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvY29tcC93aWRnZXQvc2VjdGlvbi1oZWFkZXIvaW5kZXgudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFFQSxPQUFPLEVBQUMsR0FBRyxFQUFDLE1BQU0sU0FBUyxDQUFDO0FBQzVCLE9BQU8sRUFBQyxNQUFNLEVBQUMsTUFBTSxjQUFjLENBQUM7QUFTcEMsTUFBTSxDQUFDLE9BQU8sV0FBVyxFQUFDLFFBQVEsRUFBRSxTQUFTLEVBQUUsS0FBSyxHQUFHLFNBQVMsRUFBRSxLQUFLLEVBQTJCO0lBQ2pHLE9BQU8sQ0FDTixjQUFLLFNBQVMsRUFBRSxTQUFTLFlBQ3hCLGVBQUssU0FBUyxFQUFDLG1CQUFtQixhQUNqQyxhQUFJLFNBQVMsRUFBRSxNQUFNLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsRUFBRSxHQUFHLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxZQUFHLFFBQVEsR0FBTSxFQUN4RSxLQUFLLElBQUksQ0FDVCw4QkFDQyxjQUFLLFNBQVMsRUFBQyxNQUFNLEdBQUcsRUFDdkIsS0FBSyxJQUNKLENBQ0gsSUFDSSxHQUNELENBQ04sQ0FBQztBQUNILENBQUMifQ==

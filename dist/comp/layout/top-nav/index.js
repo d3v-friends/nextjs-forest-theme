@@ -1,0 +1,9 @@
+"use server";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import cls from "../../../fn/class-names/index.js";
+import { concat } from "nextjs-tools";
+import Nav from "./nav.js";
+export default async function ({ nav, children, footer }) {
+    return (_jsxs(_Fragment, { children: [_jsx(Nav, { className: concat("sticky top-0 left-0 h-[70px] w-full", cls.zIndex.nav, "lg:p-0 pl-4 pr-4"), children: nav }), _jsxs("main", { className: concat("min-h-[calc(100vh-70px)] mr-auto ml-auto", cls.width.max, "lg:p-0 pl-4 pr-4"), children: [_jsx("div", { className: "h-5" }), children] }), _jsx("footer", { className: concat("mr-auto ml-auto", "lg:p-0 pl-4 pr-4", cls.width.max), children: footer })] }));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvY29tcC9sYXlvdXQvdG9wLW5hdi9pbmRleC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDOztBQUViLE9BQU8sR0FBRyxNQUFNLHlCQUF5QixDQUFDO0FBQzFDLE9BQU8sRUFBQyxNQUFNLEVBQUMsTUFBTSxjQUFjLENBQUM7QUFDcEMsT0FBTyxHQUFHLE1BQU0sT0FBTyxDQUFDO0FBUXhCLE1BQU0sQ0FBQyxPQUFPLENBQUMsS0FBSyxXQUFXLEVBQUMsR0FBRyxFQUFFLFFBQVEsRUFBRSxNQUFNLEVBQWtCO0lBQ3RFLE9BQU8sQ0FDTiw4QkFDQyxLQUFDLEdBQUcsSUFBQyxTQUFTLEVBQUUsTUFBTSxDQUFDLHFDQUFxQyxFQUFFLEdBQUcsQ0FBQyxNQUFNLENBQUMsR0FBRyxFQUFFLGtCQUFrQixDQUFDLFlBQy9GLEdBQUcsR0FDQyxFQUNOLGdCQUFNLFNBQVMsRUFBRSxNQUFNLENBQUMsMENBQTBDLEVBQUUsR0FBRyxDQUFDLEtBQUssQ0FBQyxHQUFHLEVBQUUsa0JBQWtCLENBQUMsYUFDckcsY0FBSyxTQUFTLEVBQUMsS0FBSyxHQUFHLEVBQ3RCLFFBQVEsSUFDSCxFQUNQLGlCQUFRLFNBQVMsRUFBRSxNQUFNLENBQUMsaUJBQWlCLEVBQUUsa0JBQWtCLEVBQUUsR0FBRyxDQUFDLEtBQUssQ0FBQyxHQUFHLENBQUMsWUFBRyxNQUFNLEdBQVUsSUFDaEcsQ0FDSCxDQUFDO0FBQ0gsQ0FBQyJ9

@@ -1,6 +1,7 @@
 "use server";
-import {serverFunction} from "@src";
+
 import form from "./form";
+import {serverFunction} from "nextjs-tools";
 
 export default async function (_: any, formData: FormData) {
 	return serverFunction(formData, form, async ({username}) => {

@@ -1,0 +1,12 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import Image from "next/image";
+import { concat } from "nextjs-tools";
+import cls from "../../../fn/class-names/index.js";
+const ImgStyle = {
+    true: "w-10 h-10",
+    false: "w-8 h-8",
+};
+export default function ({ children, className = "mb-2", icon, color = "primary", iconColor = "primary", label, right, }) {
+    return (_jsx("div", { className: className, children: _jsxs("div", { className: "flex items-center", children: [icon && (_jsx(Image, { className: concat("aspect-square mr-2", cls.filter[iconColor], ImgStyle[label ? "true" : "false"]), src: icon, alt: "icon", width: 30, height: 30 })), _jsxs("div", { className: "grow", children: [_jsx("h4", { className: concat("leading-tight", cls.text[color]), children: children }), _jsx("p", { className: "text-(--info) leading-tight", children: label })] }), !!right && _jsx("div", { className: "pl-2", children: right })] }) }));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvY29tcC93aWRnZXQvaWNvbi1oZWFkZXIvaW5kZXgudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQSxPQUFPLEtBQXdCLE1BQU0sWUFBWSxDQUFDO0FBRWxELE9BQU8sRUFBQyxNQUFNLEVBQUMsTUFBTSxjQUFjLENBQUM7QUFDcEMsT0FBTyxHQUFHLE1BQU0seUJBQXlCLENBQUM7QUFZMUMsTUFBTSxRQUFRLEdBQWtDO0lBQy9DLElBQUksRUFBRSxXQUFXO0lBQ2pCLEtBQUssRUFBRSxTQUFTO0NBQ2hCLENBQUM7QUFFRixNQUFNLENBQUMsT0FBTyxXQUFXLEVBQ3hCLFFBQVEsRUFDUixTQUFTLEdBQUcsTUFBTSxFQUNsQixJQUFJLEVBQ0osS0FBSyxHQUFHLFNBQVMsRUFDakIsU0FBUyxHQUFHLFNBQVMsRUFDckIsS0FBSyxFQUNMLEtBQUssR0FDcUI7SUFDMUIsT0FBTyxDQUNOLGNBQUssU0FBUyxFQUFFLFNBQVMsWUFDeEIsZUFBSyxTQUFTLEVBQUMsbUJBQW1CLGFBQ2hDLElBQUksSUFBSSxDQUNSLEtBQUMsS0FBSyxJQUNMLFNBQVMsRUFBRSxNQUFNLENBQ2hCLG9CQUFvQixFQUNwQixHQUFHLENBQUMsTUFBTSxDQUFDLFNBQVMsQ0FBQyxFQUNyQixRQUFRLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxDQUNsQyxFQUNELEdBQUcsRUFBRSxJQUFJLEVBQ1QsR0FBRyxFQUFDLE1BQU0sRUFDVixLQUFLLEVBQUUsRUFBRSxFQUNULE1BQU0sRUFBRSxFQUFFLEdBQ1QsQ0FDRixFQUNELGVBQUssU0FBUyxFQUFDLE1BQU0sYUFDcEIsYUFBSSxTQUFTLEVBQUUsTUFBTSxDQUFDLGVBQWUsRUFBRSxHQUFHLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxDQUFDLFlBQUcsUUFBUSxHQUFNLEVBQ3hFLFlBQUcsU0FBUyxFQUFDLDZCQUE2QixZQUFFLEtBQUssR0FBSyxJQUNqRCxFQUNMLENBQUMsQ0FBQyxLQUFLLElBQUksY0FBSyxTQUFTLEVBQUMsTUFBTSxZQUFFLEtBQUssR0FBTyxJQUMxQyxHQUNELENBQ04sQ0FBQztBQUNILENBQUMifQ==

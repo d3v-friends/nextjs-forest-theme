@@ -1,8 +1,9 @@
 "use client";
 import React, {ReactNode, useState} from "react";
-import {InputBase, useServerAction} from "@src";
+import {InputBase} from "@src";
 import Form from "./form";
 import Action from "./action";
+import {useServerAction} from "nextjs-tools";
 
 interface Props {
 	children?: ReactNode;
