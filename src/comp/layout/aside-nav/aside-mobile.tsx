@@ -29,7 +29,7 @@ export default function ({aside = [], header = ""}: Readonly<Partial<Props>>) {
 				{createPortal(
 					<div
 						className={concat(
-							"lg:hidden fixed right-5 bottom-5 z-(--z-floating)",
+							"lg:hidden fixed right-4 bottom-8 z-(--z-floating)",
 							"group h-15 w-15 rounded-full overflow-hidden shadow-xl"
 						)}>
 						<button
