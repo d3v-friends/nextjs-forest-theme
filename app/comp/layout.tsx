@@ -41,7 +41,7 @@ function Footer({}: Readonly<{children?: ReactNode}>) {
 }
 
 function Nav({}: Readonly<{children?: ReactNode}>) {
-	const {Container, Logo, Left, Right, LinkButton} = NavElems;
+	const {Container, Logo, Left, Right, LinkButton, MobileMenu} = NavElems;
 	return (
 		<Container>
 			<Left>
@@ -53,7 +53,16 @@ function Nav({}: Readonly<{children?: ReactNode}>) {
 				<LinkButton href="/comp/button">Component</LinkButton>
 			</Left>
 			<Logo>Forest Theme</Logo>
-			<Right></Right>
+			<Right>
+				<MobileMenu
+					logo="Forest theme"
+					items={[
+						{label: "Component", href: "/comp/button"},
+						{label: "Table", href: "/comp/table"},
+						{label: "Widget", href: "/comp/widget"},
+					]}
+				/>
+			</Right>
 		</Container>
 	);
 }
