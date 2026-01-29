@@ -1,0 +1,9 @@
+@layer forest {
+  section {
+    width: 100%;
+    border: 1px solid var(--border);
+    padding: 1rem;
+    overflow: hidden;
+    box-shadow: 0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.04);
+  }
+}

@@ -1,0 +1,54 @@
+@use "../fn";
+
+@layer forest {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-family: "raleway", "astasans", sans, serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    .primary {
+      color: var(--primary);
+      filter: brightness(0.9);
+    }
+
+    .success {
+      color: var(--success);
+    }
+
+    .danger {
+      color: var(--danger);
+    }
+
+    .warning {
+      color: var(--warning);
+    }
+
+    .info {
+      color: var(--info);
+    }
+  }
+
+  h1 {
+    font-size: theme(--text-4xl);
+  }
+
+  h2 {
+    font-size: theme(--text-3xl);
+  }
+
+  h3 {
+    font-size: theme(--text-2xl);
+  }
+
+  h4 {
+    font-size: theme(--text-xl);
+  }
+
+  h5 {
+    font-size: theme(--text-lg);
+  }
+
+  h6 {
+  }
+}

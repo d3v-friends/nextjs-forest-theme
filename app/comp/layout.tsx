@@ -1,6 +1,10 @@
 "use server";
 import {ReactNode} from "react";
-import {AsideNav, TopNav} from "@src";
+import {AsideNav, NavElems, TopNav} from "@src";
+import {AsideSector} from "@src/comp/layout/aside-nav";
+import ImgLogo from "web-asset/svg/regular/fi-rr-selection.svg";
+import ImgForest from "../../asset/png/forest-theme.png";
+import Image from "next/image";
 
 interface Props {
 	children?: ReactNode;
@@ -8,23 +12,24 @@ interface Props {
 
 export default async function ({children}: Readonly<Props>) {
 	return (
-		<TopNav footer={<Footer />}>
+		<TopNav
+			nav={<Nav />}
+			footer={<Footer />}>
+			<div id="toast" />
 			<AsideNav
-				aside={[
-					{
-						title: "Component",
-						links: [
-							{
-								href: "/comp/button",
-								label: "버튼",
-							},
-							{
-								href: "/comp/modal",
-								label: "모달",
-							},
-						],
-					},
-				]}>
+				aside={asideItems}
+				header={
+					<div className="flex items-center">
+						<Image
+							className="mr-2"
+							src={ImgForest}
+							alt="forest"
+							width={25}
+							height={25}
+						/>
+						Forest
+					</div>
+				}>
 				{children}
 			</AsideNav>
 		</TopNav>
@@ -32,5 +37,81 @@ export default async function ({children}: Readonly<Props>) {
 }
 
 function Footer({}: Readonly<{children?: ReactNode}>) {
-	return <div className="h-30"></div>;
+	return <div className="h-80 bg-(--warning)"></div>;
 }
+
+function Nav({}: Readonly<{children?: ReactNode}>) {
+	const {Container, Logo, Left, Right, LinkButton, MobileMenu} = NavElems;
+	return (
+		<Container>
+			<Left className="hidden lg:flex">
+				<LinkButton
+					href="/comp/button"
+					className="mr-10">
+					Component
+				</LinkButton>
+				<LinkButton href="/comp/button">Component</LinkButton>
+			</Left>
+			<Logo>Forest Theme</Logo>
+
+			<Right>
+				<MobileMenu
+					logo="Forest theme"
+					items={[
+						{label: "Component", href: "/comp/button"},
+						{label: "Table", href: "/comp/table"},
+						{label: "Widget", href: "/comp/widget"},
+					]}
+				/>
+			</Right>
+		</Container>
+	);
+}
+
+const asideItems: AsideSector[] = [
+	{
+		title: "Component",
+		links: [
+			{
+				href: "/comp/modal",
+				label: "modal",
+				icon: ImgLogo,
+			},
+			{
+				href: "/comp/button",
+				label: "button",
+				icon: ImgLogo,
+			},
+			{
+				href: "/comp/widget",
+				label: "widget",
+				icon: ImgLogo,
+			},
+			{
+				href: "/comp/table",
+				label: "table",
+				icon: ImgLogo,
+			},
+			{
+				href: "/comp/input",
+				label: "input",
+				icon: ImgLogo,
+			},
+			{
+				href: "/comp/server-action",
+				label: "server action",
+				icon: ImgLogo,
+			},
+			{
+				href: "/comp/tabs",
+				label: "tab",
+				icon: ImgLogo,
+			},
+			{
+				href: "/comp/wrap",
+				label: "wrap",
+				icon: ImgLogo,
+			},
+		],
+	},
+];

@@ -1,0 +1,51 @@
+@use "../fn";
+
+// base input
+@layer forest {
+  label {
+    font-size: theme(--text-sm);
+    color: var(--info)
+  }
+
+  .input-container {
+    label {
+      transition: var(--transition-150);
+    }
+
+    p {
+      color: var(--danger);
+      font-size: theme(--text-sm);
+      min-height: fn.spacing(6);
+    }
+
+    &:has(input:focus) label {
+      color: var(--primary);
+      filter: brightness(0.7);
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  
+  input.lined {
+    outline: none;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition-150);
+    min-height: var(--elem-height);
+  }
+
+  input.lined:focus {
+    border-bottom: 1px solid var(--primary);
+  }
+}
