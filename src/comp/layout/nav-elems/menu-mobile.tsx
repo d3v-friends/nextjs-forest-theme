@@ -64,7 +64,7 @@ function Aside({open, onChangeOpen, logo, items}: Readonly<AsideProps>) {
 			{createPortal(
 				<aside
 					className={concat(
-						"absolute top-0 left-0 w-full h-full z-(--z-floating)",
+						"fixed top-0 left-0 w-full h-full z-(--z-floating)",
 						"bg-(--suspend) backdrop-blur"
 					)}
 					onMouseUp={() => onChangeOpen(false)}>

@@ -12,9 +12,13 @@ function Container({children}: Readonly<{children?: ReactNode}>) {
 	);
 }
 
-function Logo({children, href = "/"}: Readonly<{children?: ReactNode; href?: string}>) {
+function Logo({
+	children,
+	href = "/",
+	className = "grow",
+}: Readonly<{children?: ReactNode; href?: string; className?: string}>) {
 	return (
-		<div className="flex items-center justify-center">
+		<div className={concat("flex items-center justify-center", className)}>
 			<Link
 				href={href}
 				className="raleway font-bold text-2xl">
@@ -24,8 +28,8 @@ function Logo({children, href = "/"}: Readonly<{children?: ReactNode; href?: str
 	);
 }
 
-function Left({children}: Readonly<{children?: ReactNode}>) {
-	return <div className="flex items-center">{children}</div>;
+function Left({children, className = ""}: Readonly<{children?: ReactNode; className?: string}>) {
+	return <div className={concat("flex items-center", className)}>{children}</div>;
 }
 
 function Right({children}: Readonly<{children?: ReactNode}>) {

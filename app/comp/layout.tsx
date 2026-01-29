@@ -44,7 +44,7 @@ function Nav({}: Readonly<{children?: ReactNode}>) {
 	const {Container, Logo, Left, Right, LinkButton, MobileMenu} = NavElems;
 	return (
 		<Container>
-			<Left>
+			<Left className="hidden lg:flex">
 				<LinkButton
 					href="/comp/button"
 					className="mr-10">
@@ -53,6 +53,7 @@ function Nav({}: Readonly<{children?: ReactNode}>) {
 				<LinkButton href="/comp/button">Component</LinkButton>
 			</Left>
 			<Logo>Forest Theme</Logo>
+
 			<Right>
 				<MobileMenu
 					logo="Forest theme"
