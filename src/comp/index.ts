@@ -11,8 +11,6 @@ export {default as InputDatePeriod} from "./input/period";
 export {default as AsideNav} from "./layout/aside-nav";
 export type {AsideSector, AsideSectorLink} from "./layout/aside-nav";
 export {default as NavElems} from "./layout/nav-elems";
-export {default as Panel} from "./layout/panel";
-export {default as PanelTitle} from "./layout/panel-title";
 export {default as TopNav} from "./layout/top-nav";
 export {default as Suspend} from "./layout/suspend";
 export {default as Tab} from "./layout/tab";

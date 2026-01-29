@@ -1,6 +1,5 @@
 "use server";
 import React from "react";
-import {Panel, PanelTitle} from "@src";
 import Table from "./_table";
 import {getSearchParams, NextPageProps, searchParamsParser} from "nextjs-tools";
 
@@ -12,13 +11,13 @@ export default async function ({searchParams}: NextPageProps) {
 
 	return (
 		<div className="grid grid-cols-1 gap-2 lg:gap-4">
-			<Panel>
-				<PanelTitle>Table</PanelTitle>
+			<section>
+				<h3>Table</h3>
 				<Table
 					page={page}
 					size={size}
 				/>
-			</Panel>
+			</section>
 		</div>
 	);
 }

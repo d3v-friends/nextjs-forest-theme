@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode, useState} from "react";
-import {InputBase, Panel, PanelTitle, useServerAction} from "@src";
+import {InputBase, useServerAction} from "@src";
 import Form from "./form";
 import Action from "./action";
 
@@ -35,8 +35,8 @@ export default function ({children}: Readonly<Props>) {
 				</button>
 			</form>
 
-			<PanelTitle>State</PanelTitle>
-			<Panel>{JSON.stringify(state)}</Panel>
+			<h3>State</h3>
+			<section>{JSON.stringify(state)}</section>
 		</>
 	);
 }
