@@ -1,24 +1,26 @@
 {
 	"name": "nextjs-forest-theme",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"dependencies": {
 		"decimal.js": "10.6.0",
 		"luxon": "3.7.2",
-		"next": "16.1.1",
+		"next": "16.1.6",
 		"nextjs-tools": "github:d3v-friends/nextjs-tools#3.0.6",
-		"react": "19.2.3",
+		"react": "19.2.4",
 		"react-calendar": "6.0.0",
-		"react-dom": "19.2.3",
-		"sass": "^1.97.3",
+		"react-dom": "19.2.4",
+		"sass": "1.97.3",
 		"web-asset": "github:d3v-friends/web-asset#0.0.5"
 	},
 	"devDependencies": {
 		"resolve-tspaths": "0.8.23",
 		"@tailwindcss/postcss": "4.1.18",
 		"@types/luxon": "3.7.1",
-		"@types/node": "25.0.7",
-		"@types/react": "19.2.8",
+		"@types/node": "25.1.0",
+		"@types/react": "19.2.10",
 		"@types/react-dom": "19.2.3",
-		"prettier": "3.7.4",
+		"prettier": "3.8.1",
 		"tailwindcss": "4.1.18",
 		"typescript": "5.9.3"
 	},
