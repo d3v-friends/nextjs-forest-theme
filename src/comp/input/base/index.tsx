@@ -79,7 +79,7 @@ function InvalidMessage({regexp, invalidMessage, value}: Readonly<InvalidMessage
 			return;
 		}
 		setIsValid(new RegExp(regexp).test(value));
-	}, [value]);
+	}, [value, regexp]);
 
 	if (!regexp) return null;
 	if (!invalidMessage) return null;
