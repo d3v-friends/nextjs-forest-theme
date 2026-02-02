@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Form from "./_form/form";
-import {alert, InputBase, suspend} from "@src";
+import {alert, InputBase, onErrorAlert, suspend} from "@src";
 import {useFormState} from "nextjs-tools";
 import Action from "./_form/action";
 
@@ -14,7 +14,11 @@ export default function () {
 		suspend(
 			Action(args)
 				.then(() => alert("success"))
-				.catch((err) => console.error(err))
+				.catch(
+					onErrorAlert({
+						"invalid_value: key=username": "check your username input",
+					})
+				)
 		);
 	};
 
