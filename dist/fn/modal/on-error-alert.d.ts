@@ -1,3 +1,4 @@
 import { FnBase } from "nextjs-tools";
 import { AlertOptions } from "./alert";
-export default function (book: Record<string, string>, opts?: Partial<AlertOptions>): FnBase<any>;
+import { ReactNode } from "react";
+export default function (book: Record<string, ReactNode>, opts?: Partial<AlertOptions>): FnBase<any>;
