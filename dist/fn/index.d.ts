@@ -7,3 +7,4 @@ export type { ModalOptions, ModalChildren } from "./modal";
 export type { AlertOptions, AlertChildren } from "./modal/alert";
 export type { OkCancelOptions, OkCancelChildren } from "./modal/ok-cancel";
 export { default as strconv } from "./strconv";
+export { default as suspend } from "./suspend";

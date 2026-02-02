@@ -103,6 +103,11 @@ const asideItems: AsideSector[] = [
 				icon: ImgLogo,
 			},
 			{
+				href: "/comp/server-form",
+				label: "server form",
+				icon: ImgLogo,
+			},
+			{
 				href: "/comp/tabs",
 				label: "tab",
 				icon: ImgLogo,

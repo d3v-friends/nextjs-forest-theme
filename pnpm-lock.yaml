@@ -18,8 +18,8 @@ importers:
         specifier: 16.1.6
         version: 16.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       nextjs-tools:
-        specifier: github:d3v-friends/nextjs-tools#3.0.6
-        version: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/98a6bdc95f3626bec945e5bc5678f43ca0b8e5d9
+        specifier: github:d3v-friends/nextjs-tools#3.0.10
+        version: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/5987ee3cb9b5338917bcc70f11455ce63b08cb06
       react:
         specifier: 19.2.4
         version: 19.2.4
@@ -800,9 +800,10 @@ packages:
       sass:
         optional: true
 
-  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/98a6bdc95f3626bec945e5bc5678f43ca0b8e5d9:
-    resolution: {tarball: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/98a6bdc95f3626bec945e5bc5678f43ca0b8e5d9}
+  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/5987ee3cb9b5338917bcc70f11455ce63b08cb06:
+    resolution: {tarball: https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/5987ee3cb9b5338917bcc70f11455ce63b08cb06}
     version: 0.0.0
+    engines: {node: ^24.12.0}
 
   node-addon-api@7.1.1:
     resolution: {integrity: sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==}
@@ -1600,7 +1601,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/98a6bdc95f3626bec945e5bc5678f43ca0b8e5d9:
+  nextjs-tools@https://codeload.github.com/d3v-friends/nextjs-tools/tar.gz/5987ee3cb9b5338917bcc70f11455ce63b08cb06:
     dependencies:
       '@types/luxon': 3.7.1
       decimal.js: 10.6.0

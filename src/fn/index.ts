@@ -12,3 +12,6 @@ export type {OkCancelOptions, OkCancelChildren} from "./modal/ok-cancel";
 
 // string converter
 export {default as strconv} from "./strconv";
+
+// suspend
+export {default as suspend} from "./suspend";

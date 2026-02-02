@@ -5,12 +5,15 @@
 .idea
 .fleet
 .vscode
+.run
 
 # private
 private*
 
 # mac
-.DS_Store
+DS_Store
+
+
 
 # dependencies
 /node_modules

@@ -4,16 +4,17 @@ import {concat} from "nextjs-tools";
 import {createPortal} from "react-dom";
 import cls from "../../../fn/class-names";
 import ImgLogo from "../../../../asset/png/forest-theme.png";
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
 
 interface Props {
 	pending: boolean;
 	children?: ReactNode;
+	image?: StaticImageData;
 	// wait 초 후에 로딩화면이 표시된다.
 	wait?: number;
 }
 
-export default function ({children = <Children />, pending, wait = 0.2}: Readonly<Props>) {
+export default function ({children, image, pending, wait = 0.2}: Readonly<Props>) {
 	const [init, setInit] = useState(false);
 	const [show, setShow] = useState(false);
 
@@ -49,23 +50,26 @@ export default function ({children = <Children />, pending, wait = 0.2}: Readonl
 				cls.zIndex.modal,
 				show ? "backdrop-blur-xs bg-(--suspend) opacity-100" : "opacity-0"
 			)}>
-			{children}
+			<Children
+				image={image}
+				children={children}
+			/>
 		</div>,
 		document.body
 	);
 }
 
-function Children() {
+function Children({children = "Loading", image = ImgLogo}: Readonly<{image?: StaticImageData; children?: ReactNode}>) {
 	return (
 		<div className="flex flex-col items-center no-drag">
 			<Image
 				className="brightness-50 mb-2 breathing-effect"
-				src={ImgLogo}
+				src={image}
 				alt="logo"
 				width={40}
 				height={40}
 			/>
-			<div className="text-xl font-bold text-(--primary) brightness-50 ">Loading</div>
+			<div className="text-xl font-bold text-(--primary) brightness-50 ">{children}</div>
 		</div>
 	);
 }
