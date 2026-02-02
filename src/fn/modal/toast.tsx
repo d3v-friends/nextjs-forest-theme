@@ -108,6 +108,7 @@ function Toast({
 			<div>{children}</div>
 			<div className="grow" />
 			<button
+				autoFocus
 				className="flex items-center group"
 				onClick={onHideAndClose}>
 				<Image

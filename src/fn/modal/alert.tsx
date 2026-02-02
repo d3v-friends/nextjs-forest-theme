@@ -74,6 +74,7 @@ function Alert({
 				<article>{children}</article>
 				<div className="text-right p-2">
 					<button
+						autoFocus
 						className="filled"
 						onClick={(e) => {
 							onClick(e);
