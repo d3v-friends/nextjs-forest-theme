@@ -7,24 +7,24 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    .primary {
+    &.primary {
       color: var(--primary);
-      filter: brightness(0.9);
+      filter: brightness(0.7);
     }
 
-    .success {
+    &.success {
       color: var(--success);
     }
 
-    .danger {
+    &.danger {
       color: var(--danger);
     }
 
-    .warning {
+    &.warning {
       color: var(--warning);
     }
 
-    .info {
+    &.info {
       color: var(--info);
     }
   }

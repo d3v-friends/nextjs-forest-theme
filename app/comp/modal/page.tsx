@@ -8,23 +8,13 @@ import ImgOkCancel from "web-asset/svg/regular/fi-rr-selection.svg";
 const colors: Color[] = ["primary", "danger", "success", "warning", "info"];
 export default function () {
 	const onClick = () => {
-		alert(
-			<>
-				<h4>forestAlert</h4>
-				<p>that's good</p>
-			</>
-		);
+		alert("that's good");
 	};
 
 	const onClickHeader = () => {
-		alert(
-			<>
-				<p>that's good</p>
-			</>,
-			{
-				header: "hello",
-			}
-		);
+		alert("that's good", {
+			header: "hello",
+		});
 	};
 
 	const onClickOkCancel = () => {

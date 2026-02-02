@@ -70,7 +70,7 @@ function Alert({
 			<div
 				className="cont"
 				onMouseUp={(e) => e.stopPropagation()}>
-				{!!header && <h3 className="header">{header}</h3>}
+				{!!header && <h3 className="header primary">{header}</h3>}
 				<article>{children}</article>
 				<div className="text-right p-2">
 					<button
