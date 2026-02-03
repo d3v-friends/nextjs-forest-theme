@@ -36,3 +36,4 @@ export {default as ScrollTop} from "./wrap/scroll-top";
 export {default as DelayUnmount} from "./wrap/delay-unmount";
 export {default as ScrollLock} from "./wrap/scroll-lock";
 export {default as Tooltip} from "./wrap/tooltip";
+export {default as Center} from "./wrap/center";
