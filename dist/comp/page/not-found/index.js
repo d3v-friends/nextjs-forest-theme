@@ -1,6 +1,13 @@
 "use client";
-import { Fragment as _Fragment, jsx as _jsx } from "react/jsx-runtime";
-export default function ({ children }) {
-    return _jsx(_Fragment, {});
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import Center from "../../wrap/center/index.js";
+import Img404 from "web-asset/svg/regular/fi-rr-triangle-warning.svg";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useRouterTools } from "nextjs-tools";
+export default function ({ children = "page doesn't exist", buttonText = "go to home", href = "/" }) {
+    const pathname = usePathname();
+    const router = useRouterTools();
+    return (_jsx(Center, { children: _jsxs("div", { className: "flex flex-col items-center justify-center", children: [_jsxs("div", { className: "flex items-center mb-4", children: [_jsx(Image, { className: "filter-(--primary-filter) mr-5", src: Img404, alt: "404", width: 50, height: 50 }), _jsx("div", { className: "text-3xl raleway text-(--info)", children: "404 Not Found" })] }), _jsx("p", { children: pathname }), _jsx("p", { className: "text-(--info) mb-8", children: children }), _jsx("button", { className: "outlined primary", onMouseUp: () => router.push(href), children: buttonText })] }) }));
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvY29tcC9wYWdlL25vdC1mb3VuZC9pbmRleC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDOztBQU9iLE1BQU0sQ0FBQyxPQUFPLFdBQVcsRUFBQyxRQUFRLEVBQWtCO0lBQ25ELE9BQU8sbUJBQUssQ0FBQztBQUNkLENBQUMifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvY29tcC9wYWdlL25vdC1mb3VuZC9pbmRleC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDOztBQUViLE9BQU8sTUFBTSxNQUFNLG1CQUFtQixDQUFDO0FBQ3ZDLE9BQU8sTUFBTSxNQUFNLGtEQUFrRCxDQUFDO0FBQ3RFLE9BQU8sS0FBSyxNQUFNLFlBQVksQ0FBQztBQUMvQixPQUFPLEVBQUMsV0FBVyxFQUFDLE1BQU0saUJBQWlCLENBQUM7QUFDNUMsT0FBTyxFQUFDLGNBQWMsRUFBQyxNQUFNLGNBQWMsQ0FBQztBQVE1QyxNQUFNLENBQUMsT0FBTyxXQUFXLEVBQUMsUUFBUSxHQUFHLG9CQUFvQixFQUFFLFVBQVUsR0FBRyxZQUFZLEVBQUUsSUFBSSxHQUFHLEdBQUcsRUFBa0I7SUFDakgsTUFBTSxRQUFRLEdBQUcsV0FBVyxFQUFFLENBQUM7SUFDL0IsTUFBTSxNQUFNLEdBQUcsY0FBYyxFQUFFLENBQUM7SUFFaEMsT0FBTyxDQUNOLEtBQUMsTUFBTSxjQUNOLGVBQUssU0FBUyxFQUFDLDJDQUEyQyxhQUN6RCxlQUFLLFNBQVMsRUFBQyx3QkFBd0IsYUFDdEMsS0FBQyxLQUFLLElBQ0wsU0FBUyxFQUFDLGdDQUFnQyxFQUMxQyxHQUFHLEVBQUUsTUFBTSxFQUNYLEdBQUcsRUFBQyxLQUFLLEVBQ1QsS0FBSyxFQUFFLEVBQUUsRUFDVCxNQUFNLEVBQUUsRUFBRSxHQUNULEVBQ0YsY0FBSyxTQUFTLEVBQUMsZ0NBQWdDLDhCQUFvQixJQUM5RCxFQUNOLHNCQUFJLFFBQVEsR0FBSyxFQUNqQixZQUFHLFNBQVMsRUFBQyxvQkFBb0IsWUFBRSxRQUFRLEdBQUssRUFFaEQsaUJBQ0MsU0FBUyxFQUFDLGtCQUFrQixFQUM1QixTQUFTLEVBQUUsR0FBRyxFQUFFLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsWUFDakMsVUFBVSxHQUNILElBQ0osR0FDRSxDQUNULENBQUM7QUFDSCxDQUFDIn0=

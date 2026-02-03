@@ -1,10 +1,10 @@
 import React from "react";
-import {NotFoundPage} from "@src";
+import {ErrorPage} from "@src";
 
 export default async function () {
 	return (
 		<div className="h-[calc(100vh-90px)]">
-			<NotFoundPage />
+			<ErrorPage error={new Error("on error")}>description</ErrorPage>
 		</div>
 	);
 }

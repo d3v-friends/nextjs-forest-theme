@@ -17,6 +17,7 @@ export {default as Tab} from "./layout/tab";
 
 /* page */
 export {default as NotFoundPage} from "./page/not-found";
+export {default as ErrorPage} from "./page/error";
 
 /* table */
 export * from "./table/types";
@@ -36,3 +37,4 @@ export {default as ScrollTop} from "./wrap/scroll-top";
 export {default as DelayUnmount} from "./wrap/delay-unmount";
 export {default as ScrollLock} from "./wrap/scroll-lock";
 export {default as Tooltip} from "./wrap/tooltip";
+export {default as Center} from "./wrap/center";
