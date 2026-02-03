@@ -1,19 +1,17 @@
 "use client";
 import React, {ReactNode} from "react";
 import Center from "../../wrap/center";
-import Img404 from "web-asset/svg/regular/fi-rr-triangle-warning.svg";
 import Image from "next/image";
-import {usePathname} from "next/navigation";
+import Img404 from "web-asset/svg/regular/fi-rr-octagon-xmark.svg";
 import {useRouterTools} from "nextjs-tools";
 
 interface Props {
-	children?: ReactNode;
-	buttonText?: ReactNode;
-	href?: string;
+	children: ReactNode;
+	error: Error;
+	buttonText: ReactNode;
 }
 
-export default function ({children = "page doesn't exist", buttonText = "go to home", href = "/"}: Readonly<Props>) {
-	const pathname = usePathname();
+export default function ({children, error, buttonText = "go to back"}: Readonly<Partial<Props>>) {
 	const router = useRouterTools();
 
 	return (
@@ -21,20 +19,20 @@ export default function ({children = "page doesn't exist", buttonText = "go to h
 			<div className="flex flex-col items-center justify-center">
 				<div className="flex items-center mb-4">
 					<Image
-						className="filter-(--primary-filter) mr-5"
+						className="filter-(--danger-filter) mr-5"
 						src={Img404}
 						alt="404"
 						width={50}
 						height={50}
 					/>
-					<div className="text-3xl raleway text-(--info)">404 Not Found</div>
+					<div className="text-3xl raleway text-(--info)">Error</div>
 				</div>
-				<p>{pathname}</p>
+				{error && <p>{error.message}</p>}
 				<p className="text-(--info) mb-8">{children}</p>
 
 				<button
 					className="outlined primary"
-					onMouseUp={() => router.push(href)}>
+					onClick={() => router.back()}>
 					{buttonText}
 				</button>
 			</div>

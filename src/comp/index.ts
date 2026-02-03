@@ -17,6 +17,7 @@ export {default as Tab} from "./layout/tab";
 
 /* page */
 export {default as NotFoundPage} from "./page/not-found";
+export {default as ErrorPage} from "./page/error";
 
 /* table */
 export * from "./table/types";
