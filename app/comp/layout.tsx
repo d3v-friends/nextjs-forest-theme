@@ -1,6 +1,6 @@
 "use server";
 import {ReactNode} from "react";
-import {AsideNav, NavElems, TopNav} from "@src";
+import {AsideNav} from "@src";
 import {AsideSector} from "@src/comp/layout/aside-nav";
 import ImgLogo from "web-asset/svg/regular/fi-rr-selection.svg";
 import ImgForest from "../../asset/png/forest-theme.png";
@@ -12,59 +12,22 @@ interface Props {
 
 export default async function ({children}: Readonly<Props>) {
 	return (
-		<TopNav
-			nav={<Nav />}
-			footer={<Footer />}>
-			<div id="toast" />
-			<AsideNav
-				aside={asideItems}
-				header={
-					<div className="flex items-center">
-						<Image
-							className="mr-2"
-							src={ImgForest}
-							alt="forest"
-							width={25}
-							height={25}
-						/>
-						Forest
-					</div>
-				}>
-				{children}
-			</AsideNav>
-		</TopNav>
-	);
-}
-
-function Footer({}: Readonly<{children?: ReactNode}>) {
-	return <div className="h-80 bg-(--warning)"></div>;
-}
-
-function Nav({}: Readonly<{children?: ReactNode}>) {
-	const {Container, Logo, Left, Right, LinkButton, MobileMenu} = NavElems;
-	return (
-		<Container>
-			<Left className="hidden lg:flex">
-				<LinkButton
-					href="/comp/button"
-					className="mr-10">
+		<AsideNav
+			aside={asideItems}
+			header={
+				<div className="flex items-center">
+					<Image
+						className="mr-2"
+						src={ImgForest}
+						alt="forest"
+						width={25}
+						height={25}
+					/>
 					Component
-				</LinkButton>
-				<LinkButton href="/comp/button">Component</LinkButton>
-			</Left>
-			<Logo>Forest Theme</Logo>
-
-			<Right>
-				<MobileMenu
-					logo="Forest theme"
-					items={[
-						{label: "Component", href: "/comp/button"},
-						{label: "Table", href: "/comp/table"},
-						{label: "Widget", href: "/comp/widget"},
-					]}
-				/>
-			</Right>
-		</Container>
+				</div>
+			}>
+			{children}
+		</AsideNav>
 	);
 }
 
