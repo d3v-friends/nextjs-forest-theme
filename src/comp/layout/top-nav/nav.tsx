@@ -18,7 +18,11 @@ export default function ({children, className = ""}: Readonly<Props>) {
 	return (
 		<ScrollTop>
 			{({scrollTop}) => (
-				<nav className={concat(className, cls.transition.default, Styles[isTop(scrollTop)])}>{children}</nav>
+				<nav
+					suppressHydrationWarning
+					className={concat(className, cls.transition.default, Styles[isTop(scrollTop)])}>
+					{children}
+				</nav>
 			)}
 		</ScrollTop>
 	);
