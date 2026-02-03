@@ -18,16 +18,22 @@ export interface OkCancelOptions {
 }
 
 export default function (children: OkCancelChildren, opts: Partial<OkCancelOptions> = {}) {
-	modal((onClose) => {
-		let target: ReactNode = typeof children === "function" ? children(onClose) : children;
-		return (
-			<Alert
-				onClose={onClose}
-				{...opts}>
-				{target}
-			</Alert>
-		);
-	});
+	modal(
+		(onClose) => {
+			let target: ReactNode = typeof children === "function" ? children(onClose) : children;
+			return (
+				<Alert
+					onClose={onClose}
+					{...opts}>
+					{target}
+				</Alert>
+			);
+		},
+		{
+			backdrop: false,
+			escape: false,
+		}
+	);
 }
 
 interface AlertProps {
@@ -76,39 +82,33 @@ function Alert({
 	}, []);
 
 	return (
-		<dialog
-			onMouseUp={(e) => {
-				if (e.button !== 0) return;
-				if (backdrop) onClose();
-			}}>
-			<div
-				className="cont"
-				onMouseUp={(e) => e.stopPropagation()}>
-				{!!header && <h3 className="header primary">{header}</h3>}
-				<article>{children}</article>
-				<div className="text-right p-2">
-					<button
-						ref={cancelButtonRef}
-						className="lined info mr-2"
-						onClick={(e) => {
-							onClickCancel(e);
-							onClose();
-						}}>
-						{cancelButton}
-					</button>
+		<div
+			className="cont"
+			onMouseUp={(e) => e.stopPropagation()}>
+			{!!header && <h3 className="header primary">{header}</h3>}
+			<article>{children}</article>
+			<div className="text-right p-2">
+				<button
+					ref={cancelButtonRef}
+					className="lined info mr-2"
+					onClick={(e) => {
+						onClickCancel(e);
+						onClose();
+					}}>
+					{cancelButton}
+				</button>
 
-					<button
-						autoFocus
-						ref={okButtonRef}
-						className="filled"
-						onClick={(e) => {
-							onClickOk(e);
-							onClose();
-						}}>
-						{okButton}
-					</button>
-				</div>
+				<button
+					autoFocus
+					ref={okButtonRef}
+					className="filled"
+					onClick={(e) => {
+						onClickOk(e);
+						onClose();
+					}}>
+					{okButton}
+				</button>
 			</div>
-		</dialog>
+		</div>
 	);
 }

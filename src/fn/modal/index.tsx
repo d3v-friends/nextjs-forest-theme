@@ -13,7 +13,11 @@ export interface ModalOptions {
 }
 
 export default function (children: ModalFC | ReactNode, opts: Partial<ModalOptions> = {}) {
-	const cont = document.createElement("div");
+	const cont = document.createElement("dialog");
+	cont.onmouseup = (e) => {
+		if (e.button !== 0) return;
+		if (opts.backdrop) onClose();
+	};
 	document.body.appendChild(cont);
 
 	const root = createRoot(cont);
@@ -43,7 +47,7 @@ interface AlertProps {
 	onClose: FnVoid;
 }
 
-function Alert({onClose, children, backdrop = true, escape = true}: Readonly<AlertProps & Partial<ModalOptions>>) {
+function Alert({onClose, children, escape = true}: Readonly<AlertProps & Partial<ModalOptions>>) {
 	const onCloseRef = useRef(onClose);
 
 	useEffect(() => {
@@ -64,13 +68,5 @@ function Alert({onClose, children, backdrop = true, escape = true}: Readonly<Ale
 		};
 	}, []);
 
-	return (
-		<dialog
-			onMouseUp={(e) => {
-				if (e.button !== 0) return;
-				if (backdrop) onClose();
-			}}>
-			<div onMouseUp={(e) => e.stopPropagation()}>{children}</div>
-		</dialog>
-	);
+	return <div onMouseUp={(e) => e.stopPropagation()}>{children}</div>;
 }
