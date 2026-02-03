@@ -6,8 +6,9 @@ export interface AlertOptions {
     backdrop: boolean;
     escape: boolean;
     header: ReactNode;
-    onClick: React.MouseEventHandler<HTMLButtonElement>;
+    onClick: OnClickHandler;
     button: ReactNode;
 }
+type OnClickHandler = (onClose: FnVoid) => React.MouseEventHandler<HTMLButtonElement>;
 export default function (children?: AlertChildren, opts?: Partial<AlertOptions>): void;
 export {};

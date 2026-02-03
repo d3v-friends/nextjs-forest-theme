@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode} from "react";
-import {fnVoid, FnVoid} from "nextjs-tools";
+import {FnVoid} from "nextjs-tools";
 import modal from "./index";
 
 type AlertFC = (onClose: FnVoid) => ReactNode;
@@ -10,9 +10,14 @@ export interface AlertOptions {
 	backdrop: boolean;
 	escape: boolean;
 	header: ReactNode;
-	onClick: React.MouseEventHandler<HTMLButtonElement>;
+	onClick: OnClickHandler;
 	button: ReactNode;
 }
+
+type OnClickHandler = (onClose: FnVoid) => React.MouseEventHandler<HTMLButtonElement>;
+
+const defaultClick: OnClickHandler = (onClose) => () => onClose();
+
 export default function (children: AlertChildren = "", opts: Partial<AlertOptions> = {}) {
 	modal(
 		(onClose) => {
@@ -41,7 +46,7 @@ function Alert({
 	onClose,
 	children,
 	header,
-	onClick = fnVoid,
+	onClick = defaultClick,
 	button = "확인",
 }: Readonly<AlertProps & Partial<AlertOptions>>) {
 	return (
@@ -52,10 +57,7 @@ function Alert({
 				<button
 					autoFocus
 					className="filled"
-					onClick={(e) => {
-						onClick(e);
-						onClose();
-					}}>
+					onClick={onClick(onClose)}>
 					{button}
 				</button>
 			</div>

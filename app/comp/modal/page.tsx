@@ -20,8 +20,14 @@ export default function () {
 	const onClickOkCancel = () => {
 		okCancel(<p>Choose one?</p>, {
 			header: "Ok Cancel",
-			onClickOk: () => console.log("ok"),
-			onClickCancel: () => console.log("cancel"),
+			onClickOk: (onClose) => (e) => {
+				console.log("ok");
+				onClose();
+			},
+			onClickCancel: (onClose) => (e) => {
+				console.log("cancel");
+				onClose();
+			},
 		});
 	};
 

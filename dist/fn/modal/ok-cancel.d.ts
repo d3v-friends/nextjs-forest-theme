@@ -7,10 +7,11 @@ export interface OkCancelOptions {
     escape: boolean;
     enter: boolean;
     header: ReactNode;
-    onClickOk: React.MouseEventHandler<HTMLButtonElement>;
-    onClickCancel: React.MouseEventHandler<HTMLButtonElement>;
+    onClickOk: OnClickHandler;
+    onClickCancel: OnClickHandler;
     okButton: ReactNode;
     cancelButton: ReactNode;
 }
+type OnClickHandler = (onClose: FnVoid) => React.MouseEventHandler<HTMLButtonElement>;
 export default function (children: OkCancelChildren, opts?: Partial<OkCancelOptions>): void;
 export {};

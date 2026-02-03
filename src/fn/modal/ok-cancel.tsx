@@ -1,6 +1,6 @@
 "use client";
 import React, {ReactNode, useEffect, useRef} from "react";
-import {fnVoid, FnVoid} from "nextjs-tools";
+import {FnVoid} from "nextjs-tools";
 import modal from "./index";
 
 type OkCancelFC = (onClose: FnVoid) => ReactNode;
@@ -11,11 +11,13 @@ export interface OkCancelOptions {
 	escape: boolean;
 	enter: boolean;
 	header: ReactNode;
-	onClickOk: React.MouseEventHandler<HTMLButtonElement>;
-	onClickCancel: React.MouseEventHandler<HTMLButtonElement>;
+	onClickOk: OnClickHandler;
+	onClickCancel: OnClickHandler;
 	okButton: ReactNode;
 	cancelButton: ReactNode;
 }
+type OnClickHandler = (onClose: FnVoid) => React.MouseEventHandler<HTMLButtonElement>;
+const defaultClick: OnClickHandler = (onClose) => () => onClose();
 
 export default function (children: OkCancelChildren, opts: Partial<OkCancelOptions> = {}) {
 	modal(
@@ -44,12 +46,11 @@ interface AlertProps {
 function Alert({
 	onClose,
 	children,
-	backdrop = false,
 	escape = true,
 	enter = true,
 	header,
-	onClickOk = fnVoid,
-	onClickCancel = fnVoid,
+	onClickOk = defaultClick,
+	onClickCancel = defaultClick,
 	okButton = "확인",
 	cancelButton = "취소",
 }: Readonly<AlertProps & Partial<OkCancelOptions>>) {
@@ -69,16 +70,8 @@ function Alert({
 					break;
 			}
 		};
-
 		document.addEventListener("keydown", handler);
 		return () => document.removeEventListener("keydown", handler);
-	}, []);
-
-	useEffect(() => {
-		document.body.style.overflow = "hidden";
-		return () => {
-			document.body.style.overflow = "unset";
-		};
 	}, []);
 
 	return (
@@ -91,10 +84,7 @@ function Alert({
 				<button
 					ref={cancelButtonRef}
 					className="lined info mr-2"
-					onClick={(e) => {
-						onClickCancel(e);
-						onClose();
-					}}>
+					onClick={onClickCancel(onClose)}>
 					{cancelButton}
 				</button>
 
@@ -102,10 +92,7 @@ function Alert({
 					autoFocus
 					ref={okButtonRef}
 					className="filled"
-					onClick={(e) => {
-						onClickOk(e);
-						onClose();
-					}}>
+					onClick={onClickOk(onClose)}>
 					{okButton}
 				</button>
 			</div>
