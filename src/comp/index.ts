@@ -23,6 +23,8 @@ export {default as ErrorPage} from "./page/error";
 export * from "./table/types";
 export {default as Table} from "./table/base";
 export {default as Pagination} from "./table/pagination";
+export {default as KeyValue} from "./table/key-value";
+export type {KeyValueItem} from "./table/key-value";
 
 /* tag */
 export {default as HTML} from "./tag/html";
