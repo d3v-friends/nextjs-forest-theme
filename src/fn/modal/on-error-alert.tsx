@@ -6,13 +6,18 @@ import {ReactNode} from "react";
 export default function (book: Record<string, ReactNode> = {}, opts: Partial<AlertOptions> = {}): FnBase<any> {
 	return (value) => {
 		if (!(value instanceof Error)) {
-			alert(value);
+			console.error(value);
 		}
 
 		for (let message in book) {
 			if (!value.message.includes(message)) {
 				continue;
 			}
+
+			if (!book[message]) {
+				return;
+			}
+
 			alert(book[message], opts);
 			return;
 		}

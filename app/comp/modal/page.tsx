@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import {alert, Color, IconHeader, okCancel, SectionHeader, toast} from "@src";
+import {alert, alertPromise, Color, IconHeader, okCancelPromise, SectionHeader, toast} from "@src";
 import ImgToast from "web-asset/svg/regular/fi-rr-message-alert.svg";
 import ImgAlert from "web-asset/svg/regular/fi-rr-message-alert.svg";
-import ImgOkCancel from "web-asset/svg/regular/fi-rr-selection.svg";
+import {sleep} from "nextjs-tools";
 
 const colors: Color[] = ["primary", "danger", "success", "warning", "info"];
 export default function () {
@@ -17,24 +17,45 @@ export default function () {
 		});
 	};
 
-	const onClickOkCancel = () => {
-		okCancel(<p>Choose one?</p>, {
-			header: "Ok Cancel",
-			onClickOk: (onClose) => (e) => {
-				console.log("ok");
-				onClose();
-			},
-			onClickCancel: (onClose) => (e) => {
-				console.log("cancel");
-				onClose();
-			},
-		});
-	};
-
 	const onClickToast = (color: Color) => {
 		toast(color, {
 			color,
 		});
+	};
+
+	const onClickAlertPromise = () => {
+		alertPromise("Hello world", {header: "header", escape: true})
+			.suspend(
+				async () => {
+					await sleep(2000);
+					throw new Error("test");
+				},
+				{
+					wait: 0,
+				}
+			)
+			.alert(
+				{
+					test: "test",
+					MODAL_ESCAPED: null,
+				},
+				{
+					escape: true,
+					header: "error",
+				}
+			);
+	};
+
+	const onClickOkCancelPromise = () => {
+		okCancelPromise("ok cancel")
+			.suspend(
+				(value) => {
+					if (!value) throw new Error("ModalCanceled");
+					return sleep(2000);
+				},
+				{wait: 0}
+			)
+			.catch((e) => console.log(e));
 	};
 
 	return (
@@ -52,7 +73,7 @@ export default function () {
 					label="alert function">
 					Alert
 				</IconHeader>
-				<div className="grid grid-cols-4 gap-2 lg:gap-4">
+				<div className="grid grid-cols-5 gap-2 lg:gap-4">
 					<button
 						className="filled"
 						onClick={onClick}>
@@ -63,21 +84,6 @@ export default function () {
 						className="filled"
 						onClick={onClickHeader}>
 						header
-					</button>
-				</div>
-			</section>
-
-			<section>
-				<IconHeader
-					icon={ImgOkCancel}
-					label="select your choice">
-					Ok cancel
-				</IconHeader>
-				<div className="grid grid-cols-4 gap-2 lg:gap-4">
-					<button
-						className="filled"
-						onClick={onClickOkCancel}>
-						Open
 					</button>
 				</div>
 			</section>
@@ -100,6 +106,30 @@ export default function () {
 							{color}
 						</button>
 					))}
+				</div>
+			</section>
+
+			<section>
+				<IconHeader
+					icon={ImgToast}
+					iconColor="info"
+					color="info"
+					label="promise modal">
+					Promise
+				</IconHeader>
+
+				<div className="grid grid-cols-5 gap-2 lg:gap-4">
+					<button
+						className="filled"
+						onClick={onClickAlertPromise}>
+						alert
+					</button>
+
+					<button
+						className="filled"
+						onClick={onClickOkCancelPromise}>
+						okCancel
+					</button>
 				</div>
 			</section>
 		</div>

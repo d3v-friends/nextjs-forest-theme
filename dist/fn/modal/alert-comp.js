@@ -1,0 +1,6 @@
+"use client";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+export default function ({ onClose, children, header, buttonText = "확인" }) {
+    return (_jsxs("div", { className: "bg-(--modal) rounded shadow-2xl shadow-(--shadow) min-w-80", children: [!!header && _jsx("h3", { className: "header primary pl-3 pr-3 pt-2", children: header }), _jsx("article", { className: "pl-3 pr-3 pt-2", children: children }), _jsx("div", { className: "text-right p-3", children: _jsx("button", { autoFocus: true, className: "filled", onClick: onClose, children: buttonText }) })] }));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWxlcnQtY29tcC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9mbi9tb2RhbC9hbGVydC1jb21wLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLENBQUM7O0FBV2IsTUFBTSxDQUFDLE9BQU8sV0FBVyxFQUFDLE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSxFQUFFLFVBQVUsR0FBRyxJQUFJLEVBQWdDO0lBQ3JHLE9BQU8sQ0FDTixlQUFLLFNBQVMsRUFBQyw0REFBNEQsYUFDekUsQ0FBQyxDQUFDLE1BQU0sSUFBSSxhQUFJLFNBQVMsRUFBQywrQkFBK0IsWUFBRSxNQUFNLEdBQU0sRUFDeEUsa0JBQVMsU0FBUyxFQUFDLGdCQUFnQixZQUFFLFFBQVEsR0FBVyxFQUN4RCxjQUFLLFNBQVMsRUFBQyxnQkFBZ0IsWUFDOUIsaUJBQ0MsU0FBUyxRQUNULFNBQVMsRUFBQyxRQUFRLEVBQ2xCLE9BQU8sRUFBRSxPQUFPLFlBQ2YsVUFBVSxHQUNILEdBQ0osSUFDRCxDQUNOLENBQUM7QUFDSCxDQUFDIn0=

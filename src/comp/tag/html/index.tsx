@@ -2,6 +2,7 @@
 import React, {ReactNode} from "react";
 import localFont from "next/font/local";
 import "../../../../asset/style/index.scss";
+import Promise from "../../../fn/promise-chaining/promise-implement";
 
 interface Props {
 	children?: ReactNode;
@@ -11,7 +12,10 @@ interface Props {
 export default async function ({children, lang = "ko"}: Readonly<Props>) {
 	return (
 		<html lang={lang}>
-			<body className="font-[14px] lg:font-[16px] ">{children}</body>
+			<body className="font-[14px] lg:font-[16px] ">
+				{children}
+				<Promise />
+			</body>
 		</html>
 	);
 }

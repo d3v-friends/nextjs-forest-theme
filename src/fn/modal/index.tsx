@@ -14,6 +14,7 @@ export interface ModalOptions {
 
 export default function (children: ModalFC | ReactNode, opts: Partial<ModalOptions> = {}) {
 	const cont = document.createElement("dialog");
+	cont.className = "forest";
 	cont.onmouseup = (e) => {
 		if (e.button !== 0) return;
 		if (opts.backdrop) onClose();

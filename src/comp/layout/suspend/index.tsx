@@ -14,7 +14,7 @@ interface Props {
 	wait?: number;
 }
 
-export default function ({children, image, pending, wait = 0.2}: Readonly<Props>) {
+export default function ({children, image, pending, wait = 1}: Readonly<Props>) {
 	const [init, setInit] = useState(false);
 	const [show, setShow] = useState(false);
 

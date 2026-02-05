@@ -50,10 +50,10 @@ function Alert({
 	button = "확인",
 }: Readonly<AlertProps & Partial<AlertOptions>>) {
 	return (
-		<div className="cont">
-			{!!header && <h3 className="header primary">{header}</h3>}
-			<article>{children}</article>
-			<div className="text-right p-2">
+		<div className="bg-(--modal) rounded shadow-2xl shadow-(--shadow) min-w-80">
+			{!!header && <h3 className="header primary pl-3 pr-3 pt-2">{header}</h3>}
+			<article className="pl-3 pr-3 pt-2">{children}</article>
+			<div className="text-right p-3">
 				<button
 					autoFocus
 					className="filled"
