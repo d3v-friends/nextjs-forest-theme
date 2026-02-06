@@ -46,6 +46,11 @@ const asideItems: AsideSector[] = [
 				icon: ImgLogo,
 			},
 			{
+				href: "/comp/enum",
+				label: "enum",
+				icon: ImgLogo,
+			},
+			{
 				href: "/comp/widget",
 				label: "widget",
 				icon: ImgLogo,

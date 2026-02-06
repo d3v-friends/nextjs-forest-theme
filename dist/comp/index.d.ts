@@ -22,6 +22,8 @@ export { default as HTML } from "./tag/html";
 export { default as ProgressBar } from "./widget/progress-bar";
 export { default as IconHeader } from "./widget/icon-header";
 export { default as SectionHeader } from "./widget/section-header";
+export { default as Enum } from "./widget/enum";
+export type * from "./widget/enum";
 export { default as ScrollTop } from "./wrap/scroll-top";
 export { default as DelayUnmount } from "./wrap/delay-unmount";
 export { default as ScrollLock } from "./wrap/scroll-lock";
