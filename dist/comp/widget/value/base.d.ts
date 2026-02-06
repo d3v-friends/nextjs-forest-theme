@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticImageData } from "next/image";
 import { Color } from "../../../types";
-interface Props extends React.HTMLAttributes<HTMLSpanElement> {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
     icon?: StaticImageData;
     iconColor?: Color;
     text?: string;

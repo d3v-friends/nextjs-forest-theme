@@ -3,7 +3,7 @@ import React, {ReactNode} from "react";
 import strconv from "@src/fn/strconv";
 import Base from "./base";
 
-interface Props extends Omit<React.HTMLAttributes<HTMLSpanElement>, "children"> {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
 	children: string | number;
 	copyable?: boolean;
 	thousandSeparator?: boolean;

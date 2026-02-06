@@ -5,7 +5,7 @@ import {Color} from "../../../types";
 import {concat} from "nextjs-tools";
 import {cls} from "../../..";
 
-interface Props extends React.HTMLAttributes<HTMLSpanElement> {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	icon?: StaticImageData;
 	iconColor?: Color;
 	text?: string;
@@ -21,13 +21,13 @@ export default function ({
 	...opts
 }: Readonly<Props>) {
 	return (
-		<span {...opts}>
+		<div {...opts}>
 			<div
-				className="text-(--info) flex inline-flex items-center"
+				className="text-(--info) flex inline-flex items-baseline"
 				suppressHydrationWarning>
 				{icon && (
 					<Image
-						className={concat("mr-1 w-4", cls.filter[iconColor])}
+						className={concat("mr-1 w-4 mt-auto mb-auto", cls.filter[iconColor])}
 						src={icon}
 						alt="icon"
 						width={20}
@@ -36,7 +36,7 @@ export default function ({
 				)}
 				{copyable ? <Children text={text}>{children}</Children> : children}
 			</div>
-		</span>
+		</div>
 	);
 }
 

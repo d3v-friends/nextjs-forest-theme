@@ -8,11 +8,12 @@ export default function () {
 			<h4 className="primary">Enum</h4>
 			<div className="grid grid-cols-5 gap-2 lg:gap-4">
 				{ITEMS.map((value, key) => (
-					<Enum
-						key={key}
-						value={value.value}
-						items={ITEMS}
-					/>
+					<div key={key}>
+						<Enum
+							value={value.value}
+							items={ITEMS}
+						/>
+					</div>
 				))}
 			</div>
 		</section>

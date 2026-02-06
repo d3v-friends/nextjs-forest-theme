@@ -4,7 +4,7 @@ import {DateTime} from "luxon";
 import Base from "./base";
 import ImgClock from "web-asset/svg/regular/fi-rr-clock-nine.svg";
 
-interface Props extends Omit<React.HTMLAttributes<HTMLSpanElement>, "children"> {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
 	children: string | Date;
 	timezone?: string;
 	copyable?: boolean;

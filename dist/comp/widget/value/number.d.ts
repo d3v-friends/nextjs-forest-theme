@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-interface Props extends Omit<React.HTMLAttributes<HTMLSpanElement>, "children"> {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
     children: string | number;
     copyable?: boolean;
     thousandSeparator?: boolean;

@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticImageData } from "next/image";
 import { Color } from "../../..";
-interface Props extends Omit<React.HTMLAttributes<HTMLSpanElement>, "children"> {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
     children: string;
     icon?: StaticImageData;
     iconColor?: Color;
