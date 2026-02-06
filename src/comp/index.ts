@@ -35,6 +35,10 @@ export {default as IconHeader} from "./widget/icon-header";
 export {default as SectionHeader} from "./widget/section-header";
 export {default as Enum} from "./widget/enum";
 export type * from "./widget/enum";
+export {default as ValueBase} from "./widget/value/base";
+export {default as ValueObjectId} from "./widget/value/obejct-id";
+export {default as ValueNumber} from "./widget/value/number";
+export {default as ValueTime} from "./widget/value/time";
 
 /* wrap */
 export {default as ScrollTop} from "./wrap/scroll-top";

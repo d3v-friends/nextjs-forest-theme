@@ -1,23 +1,21 @@
-import {NextPageProps} from "nextjs-tools";
+"use client";
 import React from "react";
 import {Enum, EnumItem} from "@src";
 
-export default async function ({searchParams}: NextPageProps) {
+export default function () {
 	return (
-		<div className="grid grid-cols-1 gap-2 lg:gap-4">
-			<section>
-				<h4 className="primary">Enum</h4>
-				<div className="grid grid-cols-5 gap-2 lg:gap-4">
-					{ITEMS.map((value, key) => (
-						<Enum
-							key={key}
-							value={value.value}
-							items={ITEMS}
-						/>
-					))}
-				</div>
-			</section>
-		</div>
+		<section>
+			<h4 className="primary">Enum</h4>
+			<div className="grid grid-cols-5 gap-2 lg:gap-4">
+				{ITEMS.map((value, key) => (
+					<Enum
+						key={key}
+						value={value.value}
+						items={ITEMS}
+					/>
+				))}
+			</div>
+		</section>
 	);
 }
 
