@@ -3,20 +3,32 @@ import React, {ReactNode, useEffect, useId, useState} from "react";
 import {concat, csv, FnBase, fnVoid} from "nextjs-tools";
 import Checkbox from "../elem/checkbox";
 
-interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "hidden"> {
-	items: SelectCheckboxItem[];
-	value: string[];
-	onChange: FnBase<string[]>;
+interface Props<T extends string> extends Omit<
+	React.InputHTMLAttributes<HTMLInputElement>,
+	"value" | "onChange" | "hidden"
+> {
+	items: SelectCheckboxItem<T>[];
+	value: T[];
+	onChange: FnBase<T[]>;
 	label?: ReactNode;
 	wrapper?: (children: ReactNode) => ReactNode;
 }
 
-export interface SelectCheckboxItem {
+export interface SelectCheckboxItem<T extends string> {
 	label: ReactNode;
-	value: string;
+	value: T;
 }
 
-export default function ({items, value, onChange, className = "mb-4", label, name, wrapper, ...attr}: Readonly<Props>) {
+export default function <T extends string>({
+	items,
+	value,
+	onChange,
+	className = "mb-4",
+	label,
+	name,
+	wrapper,
+	...attr
+}: Readonly<Props<T>>) {
 	const [strValue, setStrValue] = useState(getStrValue(value));
 	const id = useId();
 
@@ -25,7 +37,7 @@ export default function ({items, value, onChange, className = "mb-4", label, nam
 	}, [value]);
 
 	useEffect(() => {
-		onChange(strValue === "" ? [] : csv.split(strValue));
+		onChange(strValue === "" ? [] : strValue.split(",").map((item) => item.trim() as T));
 	}, [strValue]);
 
 	const onChangeCheckbox = (item: string, checked: boolean) => {
