@@ -8,6 +8,7 @@ interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value
 	value: string[];
 	onChange: FnBase<string[]>;
 	label?: ReactNode;
+	wrapper?: (children: ReactNode) => ReactNode;
 }
 
 export interface SelectCheckboxItem {
@@ -15,7 +16,7 @@ export interface SelectCheckboxItem {
 	value: string;
 }
 
-export default function ({items, value, onChange, className = "mb-4", label, name, ...attr}: Readonly<Props>) {
+export default function ({items, value, onChange, className = "mb-4", label, name, wrapper, ...attr}: Readonly<Props>) {
 	const [strValue, setStrValue] = useState(getStrValue(value));
 	const id = useId();
 
@@ -31,18 +32,20 @@ export default function ({items, value, onChange, className = "mb-4", label, nam
 		checked ? setStrValue(csv.push(strValue, item)) : setStrValue(csv.pop(strValue, item));
 	};
 
+	const checkBoxes = items.map((item, key) => (
+		<Checkbox
+			key={key}
+			value={csv.has(strValue, item.value)}
+			onChange={(_, checked) => onChangeCheckbox(item.value, checked)}>
+			{item.label}
+		</Checkbox>
+	));
+
 	return (
 		<div className={concat(className, "input-container")}>
 			{!!label && <label htmlFor={id}>{label}</label>}
 
-			{items.map((item, key) => (
-				<Checkbox
-					key={key}
-					value={csv.has(strValue, item.value)}
-					onChange={(_, checked) => onChangeCheckbox(item.value, checked)}>
-					{item.label}
-				</Checkbox>
-			))}
+			{!!wrapper ? wrapper(checkBoxes) : checkBoxes}
 
 			{!!name && (
 				<input

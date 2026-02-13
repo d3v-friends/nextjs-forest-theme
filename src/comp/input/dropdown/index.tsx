@@ -3,14 +3,17 @@ import React, {ReactNode, useId} from "react";
 import Dropdown, {DropdownItem} from "../elem/dropdown";
 import {concat, FnBase, fnVoid} from "nextjs-tools";
 
-interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "hidden"> {
+interface Props<T extends string> extends Omit<
+	React.InputHTMLAttributes<HTMLInputElement>,
+	"value" | "onChange" | "hidden"
+> {
 	value: string;
 	onChange: FnBase<string>;
-	items: DropdownItem[];
+	items: DropdownItem<T>[];
 	label?: ReactNode;
 }
 
-export default function ({
+export default function <T extends string>({
 	value,
 	items,
 	onChange,
@@ -22,7 +25,7 @@ export default function ({
 	// input attribute
 	name,
 	...attr
-}: Readonly<Props>) {
+}: Readonly<Props<T>>) {
 	const id = useId();
 
 	return (

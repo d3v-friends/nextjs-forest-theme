@@ -7,19 +7,24 @@ import ImgUp from "web-asset/svg/regular/fi-rr-caret-up.svg";
 import Image from "next/image";
 import {useDropdown} from "@src";
 
-interface Props {
-	items: DropdownItem[];
-	value: string;
-	onChange: (value: string) => void;
+interface Props<T extends string> {
+	items: DropdownItem<T>[];
+	value: T;
+	onChange: (value: T) => void;
 	className: string;
 }
 
-export interface DropdownItem {
+export interface DropdownItem<T> {
 	label: ReactNode;
-	value: string;
+	value: T;
 }
 
-export default function ({items = [], value = "", onChange = fnVoid, className}: Readonly<Partial<Props>>) {
+export default function <T extends string>({
+	items = [] as DropdownItem<T>[],
+	value = "" as T,
+	onChange = fnVoid,
+	className,
+}: Readonly<Partial<Props<T>>>) {
 	const [idx, setIdx] = useState(getIndex(items, value));
 	const [dropdown] = useDropdown(
 		({width, onClose}) => (
@@ -69,20 +74,20 @@ export default function ({items = [], value = "", onChange = fnVoid, className}:
 	));
 }
 
-function getIndex(items: DropdownItem[], value: string): number {
+function getIndex<T>(items: DropdownItem<T>[], value: T): number {
 	const idx = items.findIndex((v) => v.value === value);
 	return idx === -1 ? 0 : idx;
 }
 
-interface DropdownProps {
+interface DropdownProps<T> {
 	width: number;
-	items: DropdownItem[];
+	items: DropdownItem<T>[];
 	idx: number;
 	onChangeIdx: FnBase<number>;
 	onClose: FnVoid;
 }
 
-function Dropdown({width, items, onChangeIdx, idx, onClose}: Readonly<DropdownProps>) {
+function Dropdown<T>({width, items, onChangeIdx, idx, onClose}: Readonly<DropdownProps<T>>) {
 	return (
 		<div
 			className="pt-2"

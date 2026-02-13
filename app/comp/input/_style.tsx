@@ -95,6 +95,21 @@ export default function () {
 				]}
 			/>
 
+			<InputSelectCheckbox
+				name="select"
+				label="select checkbox"
+				value={state.select}
+				onChange={(select) => setState({...state, select})}
+				wrapper={(children) => <div className="grid grid-cols-5 gap-2">{children}</div>}
+				items={[
+					{label: "10 개", value: "10"},
+					{label: "20 개", value: "20"},
+					{label: "30 개", value: "30"},
+					{label: "40 개", value: "40"},
+					{label: "50 개", value: "50"},
+				]}
+			/>
+
 			<InputDate
 				label="date"
 				name="date"

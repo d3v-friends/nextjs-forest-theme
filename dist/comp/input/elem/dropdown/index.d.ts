@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
-interface Props {
-    items: DropdownItem[];
-    value: string;
-    onChange: (value: string) => void;
+interface Props<T extends string> {
+    items: DropdownItem<T>[];
+    value: T;
+    onChange: (value: T) => void;
     className: string;
 }
-export interface DropdownItem {
+export interface DropdownItem<T> {
     label: ReactNode;
-    value: string;
+    value: T;
 }
-export default function ({ items, value, onChange, className }: Readonly<Partial<Props>>): React.ReactNode;
+export default function <T extends string>({ items, value, onChange, className, }: Readonly<Partial<Props<T>>>): React.ReactNode;
 export {};
