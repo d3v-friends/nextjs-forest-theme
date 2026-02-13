@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {ReactNode} from "react";
 import {concat, useRouterTools} from "nextjs-tools";
 import Items from "./items";
 import {useSearchParams} from "next/navigation";
@@ -14,7 +14,14 @@ interface Props {
 	sizeKey?: string;
 	className?: string;
 	buttons?: number;
+	sizeList?: {label: ReactNode; value: number}[];
 }
+
+const DEFAULT_SIZE_LIST = [
+	{label: "10 개", value: 10},
+	{label: "30 개", value: 30},
+	{label: "50 개", value: 50},
+];
 
 const {LinkButton, Prev, Next} = Items;
 
@@ -26,6 +33,7 @@ export default function ({
 	sizeKey = "size",
 	className = "",
 	buttons = 2,
+	sizeList = DEFAULT_SIZE_LIST,
 }: Readonly<Props>) {
 	if (total === 0) return null;
 	if (size === 0) return null;
@@ -53,14 +61,9 @@ export default function ({
 
 	return (
 		<div className={concat("flex items-center justify-center", className)}>
-			{/* TODO 나중에 이곳 동적으로 바꿀수 있도록 기능 추가하기 */}
 			<div className="hidden grow md:flex md:items-center">
 				<Dropdown
-					items={[
-						{label: "10 개", value: "10"},
-						{label: "30 개", value: "30"},
-						{label: "50 개", value: "50"},
-					]}
+					items={sizeList.map((item) => ({label: item.label, value: item.value.toString()}))}
 					onChange={(value) => {
 						router.pushBySearchParams({[sizeKey]: value});
 					}}
