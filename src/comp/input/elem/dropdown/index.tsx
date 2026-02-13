@@ -1,5 +1,5 @@
 "use client";
-import React, {ReactNode, useEffect, useState} from "react";
+import React, {ReactNode, useState} from "react";
 import cls from "../../../../fn/class-names";
 import {concat, FnBase, FnVoid, fnVoid} from "nextjs-tools";
 import ImgDown from "web-asset/svg/regular/fi-rr-caret-down.svg";
@@ -32,7 +32,10 @@ export default function <T extends string>({
 				width={width}
 				items={items}
 				idx={idx}
-				onChangeIdx={setIdx}
+				onChangeIdx={(next) => {
+					setIdx(next);
+					onChange(items[next].value);
+				}}
 				onClose={onClose}
 			/>
 		),
@@ -40,14 +43,6 @@ export default function <T extends string>({
 			className,
 		}
 	);
-
-	useEffect(() => {
-		setIdx(getIndex(items, value));
-	}, [value]);
-
-	useEffect(() => {
-		onChange(items[idx].value);
-	}, [idx]);
 
 	if (items.length === 0) return null;
 
