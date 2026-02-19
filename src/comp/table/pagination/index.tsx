@@ -67,7 +67,7 @@ export default function ({
 					onChange={(value) => {
 						router.pushBySearchParams({[sizeKey]: value});
 					}}
-					value={params.get(sizeKey) || "10"}
+					value={params.get(sizeKey) || size.toString()}
 				/>
 				<div className="text-(--info) pl-2">전체 {strconv.toSplitNumber(total)} 개</div>
 			</div>
