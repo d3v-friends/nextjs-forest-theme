@@ -15,6 +15,11 @@ export {default as TopNav} from "./layout/top-nav";
 export {default as Suspend} from "./layout/suspend";
 export {default as Tab} from "./layout/tab";
 
+/* modal */
+export {default as ModalContainer} from "./modal/elem/container";
+export {default as ModalHeader} from "./modal/elem/header";
+export {default as ModalContent} from "./modal/elem/content";
+
 /* page */
 export {default as NotFoundPage} from "./page/not-found";
 export {default as ErrorPage} from "./page/error";
