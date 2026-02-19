@@ -17,6 +17,7 @@ interface Props<T> {
 	onClick: OnMouseUpTable<T>;
 	// middle click
 	onMiddleClick: OnMouseUpTable<T>;
+	emptyChildren: ReactNode;
 }
 
 export default function <T>({
@@ -25,6 +26,7 @@ export default function <T>({
 	className = "w-full mb-8",
 	onClick = fnVoid,
 	onMiddleClick = fnVoid,
+	emptyChildren,
 }: Readonly<Partial<Props<T>>>) {
 	return (
 		<table className={concat(cls.border.bottom, className)}>
@@ -35,12 +37,13 @@ export default function <T>({
 				onClick={onClick}
 				onMiddleClick={onMiddleClick}
 				list={list}
+				emptyChildren={emptyChildren}
 			/>
 		</table>
 	);
 }
 
-function Tbody<T>({columns, list, onClick, onMiddleClick}: Readonly<Props<T>>) {
+function Tbody<T>({columns, list, onClick, onMiddleClick, emptyChildren}: Readonly<Props<T>>) {
 	return (
 		<tbody>
 			{list.map((row, k1) => (
@@ -58,7 +61,24 @@ function Tbody<T>({columns, list, onClick, onMiddleClick}: Readonly<Props<T>>) {
 					))}
 				</TbodyTr>
 			))}
+
+			{list.length === 0 && <TbodyEmpty cols={columns.length}>{emptyChildren}</TbodyEmpty>}
 		</tbody>
+	);
+}
+
+interface TbodyEmptyProps {
+	children?: ReactNode;
+	cols: number;
+}
+
+function TbodyEmpty({
+	children = <div className="h-16 text-center flex items-center justify-center text-(--info)">내용이 없습니다.</div>,
+}: Readonly<TbodyEmptyProps>) {
+	return (
+		<tr>
+			<td colSpan={4}>{children}</td>
+		</tr>
 	);
 }
 

@@ -4,6 +4,7 @@ import Table from "./_table";
 import {getSearchParams, NextPageProps, searchParamsParser} from "nextjs-tools";
 import KeyValue from "./_key-value";
 import Stripe from "./_stripe";
+import Empty from "./_empty";
 
 export default async function ({searchParams}: NextPageProps) {
 	const {page, size} = await getSearchParams(searchParams, {
@@ -19,6 +20,11 @@ export default async function ({searchParams}: NextPageProps) {
 					page={page}
 					size={size}
 				/>
+			</section>
+
+			<section>
+				<h3>Empty</h3>
+				<Empty />
 			</section>
 
 			<section>
