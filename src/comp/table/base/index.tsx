@@ -73,11 +73,12 @@ interface TbodyEmptyProps {
 }
 
 function TbodyEmpty({
+	cols,
 	children = <div className="h-16 text-center flex items-center justify-center text-(--info)">내용이 없습니다.</div>,
 }: Readonly<TbodyEmptyProps>) {
 	return (
 		<tr>
-			<td colSpan={4}>{children}</td>
+			<td colSpan={cols}>{children}</td>
 		</tr>
 	);
 }
