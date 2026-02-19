@@ -3,6 +3,7 @@ import React from "react";
 import Table from "./_table";
 import {getSearchParams, NextPageProps, searchParamsParser} from "nextjs-tools";
 import KeyValue from "./_key-value";
+import Stripe from "./_stripe";
 
 export default async function ({searchParams}: NextPageProps) {
 	const {page, size} = await getSearchParams(searchParams, {
@@ -23,6 +24,11 @@ export default async function ({searchParams}: NextPageProps) {
 			<section>
 				<h3>Key-value</h3>
 				<KeyValue />
+			</section>
+
+			<section>
+				<h3>Stripe</h3>
+				<Stripe />
 			</section>
 		</div>
 	);

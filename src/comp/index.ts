@@ -24,6 +24,7 @@ export * from "./table/types";
 export {default as Table} from "./table/base";
 export {default as Pagination} from "./table/pagination";
 export {default as KeyValue} from "./table/key-value";
+export {default as Stripe} from "./table/stripe";
 export type {KeyValueItem} from "./table/key-value";
 
 /* tag */
