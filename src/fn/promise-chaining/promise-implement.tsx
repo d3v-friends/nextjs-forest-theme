@@ -48,16 +48,13 @@ Promise.prototype.suspend = function <T, TResult1 = T>(
 			/>
 		);
 
-		const defer = () => ({
-			[Symbol.dispose]: () => {
-				root.unmount();
-				cont.remove();
-			},
-		});
-
-		{
-			using _ = defer();
+		try {
 			return onfulfilled ? await onfulfilled(value) : (value as unknown as TResult1);
+		} catch (e) {
+			throw e;
+		} finally {
+			root.unmount();
+			cont.remove();
 		}
 	});
 };

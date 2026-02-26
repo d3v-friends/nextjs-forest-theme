@@ -6,6 +6,7 @@
 .fleet
 .vscode
 .run
+version
 
 # private
 private*
